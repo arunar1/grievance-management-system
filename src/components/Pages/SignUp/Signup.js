@@ -3,8 +3,8 @@ import React from 'react';
 export default function Signup() {
   return (
     <div className="d-flex justify-content-center align-items-center vh-100">
-      <form className="row g-3" style={{width:'75%'}}>
-        <div className="row">
+      <form className="row g-3" style={{ width: "75%" }}>
+        <div className="row m-3">
           <div className="col-md-6">
             <label htmlFor="inputFirstname4" className="form-label">
               First Name
@@ -18,7 +18,7 @@ export default function Signup() {
             <input type="text" className="form-control" id="inputLastname4" />
           </div>
         </div>
-        <div className="row">
+        <div className="row m-3">
           <div className="col-md-6">
             <label htmlFor="inputEmail4" className="form-label">
               Email
@@ -36,7 +36,7 @@ export default function Signup() {
             />
           </div>
         </div>
-        <div className="row">
+        <div className="row m-3">
           <div className="col-md-6">
             <label htmlFor="inputCity" className="form-label">
               City
@@ -50,7 +50,7 @@ export default function Signup() {
             <input type="text" className="form-control" id="inputZip" />
           </div>
         </div>
-        <div className="row">
+        <div className="row m-3">
           <div className="col-12">
             <div className="form-check">
               <input
@@ -64,7 +64,7 @@ export default function Signup() {
             </div>
           </div>
         </div>
-        <div className="row">
+        <div className="row m-3">
           <div className="col-12">
             <button type="submit" className="btn btn-primary">
               Sign in
