@@ -21,14 +21,14 @@ export default function Header() {
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <Link className="nav-link active" aria-current="page" to="/">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" to="/about">
                 About
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
@@ -36,7 +36,7 @@ export default function Header() {
               </a>
             </li>
             <li className="nav-item">
-              <Link className="nav-link"   to="/signup">
+              <Link className="nav-link" to="/signup">
                 SignUp
               </Link>
             </li>

@@ -47,7 +47,7 @@ export default function Signup() {
             <label htmlFor="inputZip" className="form-label">
               Zip
             </label>
-            <input type="text" className="form-control" id="inputZip" />
+            <input type="tel"  className="form-control" id="inputZip" />
           </div>
         </div>
         <div className="row m-3">
