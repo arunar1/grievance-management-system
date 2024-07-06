@@ -3,7 +3,7 @@ import React from 'react';
 export default function Signup() {
   return (
     <div className="d-flex justify-content-center align-items-center vh-100">
-      <form className="row g-3 w-50">
+      <form className="row g-3" style={{width:'75%'}}>
         <div className="row">
           <div className="col-md-6">
             <label htmlFor="inputFirstname4" className="form-label">

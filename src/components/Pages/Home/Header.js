@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 export default function Header() {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -35,9 +36,9 @@ export default function Header() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-               SignUp
-              </a>
+              <Link className="nav-link"   to="/signup">
+                SignUp
+              </Link>
             </li>
           </ul>
         </div>
