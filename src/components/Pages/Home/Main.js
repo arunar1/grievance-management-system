@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function Main() {
-  const [userType, setUserType] = useState("");
+  const [userType, setUserType] = useState("User");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -26,14 +26,14 @@ export default function Main() {
   };
 
   return (
-    <div className="container">
-      <form  onSubmit={handleSubmit}>
+    <div className="container d-flex justify-content-center login-container">
+      <form  onSubmit={handleSubmit} className="login-form">
         <div className="row mb-3">
           <label className="col-sm-2 col-form-label">Role</label>
           <div className="col-sm-10">
             <div className="dropdown">
               <button
-                className="btn dropdown-toggle"
+                className="btn dropdown-toggle" 
                 type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
@@ -56,7 +56,7 @@ export default function Main() {
                     href="#"
                     onClick={handleUserTypeChange}
                   >
-                    Superviser
+                    Supervisor
                   </a>
                 </li>
                 <li>
@@ -65,7 +65,7 @@ export default function Main() {
                     href="#"
                     onClick={handleUserTypeChange}
                   >
-                    Assigny
+                    Asignee
                   </a>
                 </li>
               </ul>
@@ -74,7 +74,7 @@ export default function Main() {
         </div>
 
 
-        {/* {userType==='Assigny' ? ():()} */}
+        {/* {userType==='Asignee' ? ():()} */}
         <div className="row mb-3">
           <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">
             Email

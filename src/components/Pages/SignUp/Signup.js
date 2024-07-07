@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export default function Signup() {
   const [formData, setFormData] = useState({
-    licenseId:"",
+    passCode:"",
     role: "User",
     firstName: "",
     lastName: "",
@@ -52,7 +52,7 @@ export default function Signup() {
                 {formData.role || "Select Role"}
               </button>
               <ul className="dropdown-menu">
-                {["User", "Superviser", "Assigny"].map((role) => (
+                {["User", "Supervisor", "Asignee"].map((role) => (
                   <li key={role}>
                     <a
                       className="dropdown-item"
@@ -71,19 +71,19 @@ export default function Signup() {
           {formData.role != "User" ? (
             <div className="col-md-6">
               <label htmlFor="inputFirstname4" className="form-label">
-                License ID
+                Pass Code
               </label>
               <input
                 type="text"
                 className="form-control"
                 id="inputlicenseId4"
-                name="licenseId"
-                value={formData.licenseId}
+                name="passCode"
+                value={formData.passCode}
                 onChange={handleChange}
               />
             </div>
           ) : null}
-          {formData.role === "Assigny" ? (
+          {formData.role === "Asignee" ? (
             <div className="col-md-6">
               <label htmlFor="inputLastname4" className="form-label">
                Category
