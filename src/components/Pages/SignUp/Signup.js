@@ -34,11 +34,11 @@ export default function Signup() {
   };
 
   return (
-    <div className="d-flex justify-content-center" style={{marginTop:'6rem'}}>
-      <form
-        className="row g-3 signup-container"
-        onSubmit={handleSubmit}
-      >
+    <div
+      className="d-flex justify-content-center"
+      style={{ marginTop: "6rem" }}
+    >
+      <form className="row g-3 signup-container" onSubmit={handleSubmit}>
         <div className="row mb-3">
           <label className="col-sm-2 col-form-label">Role</label>
           <div className="col-sm-10">
@@ -67,38 +67,7 @@ export default function Signup() {
             </div>
           </div>
         </div>
-        <div className="row mb-3">
-          {formData.role != "User" ? (
-            <div className="col-md-6">
-              <label htmlFor="inputFirstname4" className="form-label">
-                Pass Code
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="inputlicenseId4"
-                name="passCode"
-                value={formData.passCode}
-                onChange={handleChange}
-              />
-            </div>
-          ) : null}
-          {formData.role === "Asignee" ? (
-            <div className="col-md-6">
-              <label htmlFor="inputLastname4" className="form-label">
-               Category
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="inputLastname4"
-                name="lastName"
-                value={formData.lastName}
-                onChange={handleChange}
-              />
-            </div>
-          ) : null}
-        </div>
+
         <div className="row mb-3">
           <div className="col-md-6">
             <label htmlFor="inputFirstname4" className="form-label">
@@ -126,6 +95,42 @@ export default function Signup() {
               onChange={handleChange}
             />
           </div>
+        </div>
+        <div className="row mb-3">
+          {formData.role != "User" ? (
+            <div className="col-md-6">
+              <label htmlFor="inputFirstname4" className="form-label">
+                Pass Code
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="inputlicenseId4"
+                name="passCode"
+                value={formData.passCode}
+                onChange={handleChange}
+              />
+            </div>
+          ) : null}
+          {formData.role === "Asignee" ? (
+            <div className="col-md-6">
+              <label htmlFor="inputCategory4" className="form-label">
+                Category
+              </label>
+              <select
+                className="form-control"
+                id="inputCategory4"
+                name="category"
+                value={formData.category}
+                onChange={handleChange}
+              >
+                <option value="">Select a category</option>
+                <option value="category1">Category 1</option>
+                <option value="category2">Category 2</option>
+                <option value="category3">Category 3</option>
+              </select>
+            </div>
+          ) : null}
         </div>
         <div className="row mb-3">
           <div className="col-md-6">

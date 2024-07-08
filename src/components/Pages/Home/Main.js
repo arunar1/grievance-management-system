@@ -26,14 +26,16 @@ export default function Main() {
   };
 
   return (
-    <div className="container d-flex justify-content-center login-container">
-      <form  onSubmit={handleSubmit} className="login-form">
+    <div
+      className="container d-flex justify-content-center login-container "
+    >
+      <form onSubmit={handleSubmit} className="login-form">
         <div className="row mb-3">
-          <label className="col-sm-2 col-form-label">Role</label>
-          <div className="col-sm-10">
+          <label className="col-sm-4 col-form-label">Role</label>
+          <div className="col-sm-8">
             <div className="dropdown">
               <button
-                className="btn dropdown-toggle" 
+                className="btn dropdown-toggle custome-dropdown"
                 type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
@@ -73,13 +75,12 @@ export default function Main() {
           </div>
         </div>
 
-
         {/* {userType==='Asignee' ? ():()} */}
         <div className="row mb-3">
-          <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">
+          <label htmlFor="inputEmail3" className="col-sm-4 col-form-label">
             Email
           </label>
-          <div className="col-sm-10">
+          <div className="col-sm-8">
             <input
               type="email"
               className="form-control"
@@ -90,10 +91,10 @@ export default function Main() {
           </div>
         </div>
         <div className="row mb-3">
-          <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">
+          <label htmlFor="inputPassword3" className="col-sm-4 col-form-label">
             Password
           </label>
-          <div className="col-sm-10">
+          <div className="col-sm-8">
             <input
               type="password"
               className="form-control"

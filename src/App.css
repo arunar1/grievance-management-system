@@ -44,24 +44,57 @@
   }
   
 }
+
+.nav-link{
+  color: grey;
+}
+
+.navbar-brand{
+  color: grey;
+}
+
+.nav-header{
+  background-color: rgb(1, 1, 1);
+  
+}
+
+
+.home-screen{
+  /* background-color: #828387; */
+}
+
+.header-active-link{
+  color:white;
+}
+.login-form {
+  padding: 40px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.custome-dropdown{
+    width: 100%;
+    text-align: left;
+
+}
 @media (max-width: 700px) {
   .signup-container {
     padding: 20px;
     margin-top: -4rem;
   }
+    .login-form {
+      padding: 20px;
+      border: 2px solid black;
+      border-radius: 5px;
+    }
 }
  
 @media (min-width: 700px){
   .login-form{
-    width: 500px;
+   
   }
-  .login-container{
-    margin-top:10%;
-  }
-  .login-form{
-    padding:40px;
-    border: 2px solid black;
-    border-radius: 5px;
-  }
+  
+  
 
 }
