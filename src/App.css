@@ -46,16 +46,17 @@
 }
 
 .nav-link{
-  color: grey;
+  color: rgb(28, 26, 26);
 }
 
+
 .navbar-brand{
-  color: grey;
+  color: rgb(14, 13, 13);
 }
 
 .nav-header{
-  background-color: rgb(1, 1, 1);
-  
+
+  background-color: rgba(30, 27, 27, 0.5);
 }
 
 
@@ -76,8 +77,15 @@
 .custome-dropdown{
     width: 100%;
     text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border:1px solid rgb(201, 193, 193);
 
 }
+
+
+
 @media (max-width: 700px) {
   .signup-container {
     padding: 20px;

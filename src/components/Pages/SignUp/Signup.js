@@ -41,10 +41,10 @@ export default function Signup() {
       <form className="row g-3 signup-container" onSubmit={handleSubmit}>
         <div className="row mb-3">
           <label className="col-sm-2 col-form-label">Role</label>
-          <div className="col-sm-10">
+          <div className="col-sm-4">
             <div className="dropdown">
               <button
-                className="btn dropdown-toggle"
+                className="btn dropdown-toggle custome-dropdown"
                 type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
