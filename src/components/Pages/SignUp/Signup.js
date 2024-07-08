@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 export default function Signup() {
   const [formData, setFormData] = useState({
-    passCode:"",
-    category:"",
+    passCode: "",
+    category: "",
     role: "User",
     firstName: "",
     lastName: "",
@@ -40,7 +40,7 @@ export default function Signup() {
       style={{ marginTop: "6rem" }}
     >
       <form className="row g-3 signup-container" onSubmit={handleSubmit}>
-        <div className="row" style={{marginBottom:'5rem'}}>
+        <div className="row" style={{ marginBottom: "5rem" }}>
           <label className="col-sm-2 col-form-label">Role</label>
           <div className="col-sm-4">
             <div className="dropdown">
@@ -70,7 +70,7 @@ export default function Signup() {
         </div>
 
         <div className="row mb-3">
-          <div className="col-md-6">
+          <div className="col-md-6 mb-3 mb-md-0">
             <label htmlFor="inputFirstname4" className="form-label">
               First Name
             </label>
@@ -98,8 +98,8 @@ export default function Signup() {
           </div>
         </div>
         <div className="row mb-3">
-          {formData.role != "User" ? (
-            <div className="col-md-6">
+          {formData.role !== "User" ? (
+            <div className="col-md-6 mb-3 mb-md-0">
               <label htmlFor="inputFirstname4" className="form-label">
                 Pass Code
               </label>
@@ -125,16 +125,17 @@ export default function Signup() {
                 value={formData.category}
                 onChange={handleChange}
               >
-                <option value="">Select Category</option>
+                <option ></option>
                 <option value="category1">Category 1</option>
                 <option value="category2">Category 2</option>
                 <option value="category3">Category 3</option>
+                {/* Add more options as needed */}
               </select>
             </div>
           ) : null}
         </div>
         <div className="row mb-3">
-          <div className="col-md-6">
+          <div className="col-md-6 mb-3 mb-md-0">
             <label htmlFor="inputEmail4" className="form-label">
               Email
             </label>
@@ -162,7 +163,7 @@ export default function Signup() {
           </div>
         </div>
         <div className="row mb-3">
-          <div className="col-md-6">
+          <div className="col-md-6 mb-3 mb-md-0">
             <label htmlFor="inputCity" className="form-label">
               City
             </label>

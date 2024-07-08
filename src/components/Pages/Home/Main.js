@@ -7,6 +7,7 @@ export default function Main() {
 
   const handleUserTypeChange = (event) => {
     setUserType(event.target.textContent);
+    console.log(event.target.textContent)
   };
 
   const handleEmailChange = (event) => {
