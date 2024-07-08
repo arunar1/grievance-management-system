@@ -40,7 +40,7 @@ export default function Signup() {
       style={{ marginTop: "6rem" }}
     >
       <form className="row g-3 signup-container" onSubmit={handleSubmit}>
-        <div className="row mb-3">
+        <div className="row" style={{marginBottom:'5rem'}}>
           <label className="col-sm-2 col-form-label">Role</label>
           <div className="col-sm-4">
             <div className="dropdown">
