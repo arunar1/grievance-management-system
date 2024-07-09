@@ -28,15 +28,15 @@ export default function Main() {
 
   return (
     <div
-      className="container d-flex justify-content-center login-container "
+      className="container d-flex  login-container  "
     >
-      <form onSubmit={handleSubmit} className="login-form">
+      <form onSubmit={handleSubmit} className="login-form text-white">
         <div className="row mb-3">
           <label className="col-sm-4 col-form-label">Role</label>
           <div className="col-sm-8">
             <div className="dropdown">
               <button
-                className="btn dropdown-toggle custome-dropdown"
+                className="btn dropdown-toggle text-white custome-dropdown"
                 type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
@@ -44,7 +44,7 @@ export default function Main() {
                 {userType}
               </button>
               <ul className="dropdown-menu">
-                <li>
+                <li className="">
                   <a
                     className="dropdown-item"
                     href="#"

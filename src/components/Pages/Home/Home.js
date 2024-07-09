@@ -4,9 +4,9 @@ import Main from "./Main";
 
 export default function Home() {
   return (
-    <div className="d-flex flex-column min-vh-100">
+    <div className="d-flex flex-column min-vh-100 login-background">
       <Header />
-      <div className="container-fluid d-flex flex-grow-1 justify-content-center align-items-center home-screen">
+      <div className="container-fluid">
         <Main />
       </div>
     </div>
