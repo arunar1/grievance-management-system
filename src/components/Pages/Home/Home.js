@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="d-flex flex-column min-vh-100 login-background">
       <Header />
-      <div className="container-fluid">
+      <div className="container-fluid flex-grow-1 d-flex align-items-end p-3 justify-content-end">
         <Main />
       </div>
     </div>
