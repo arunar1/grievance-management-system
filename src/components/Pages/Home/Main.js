@@ -28,7 +28,7 @@ export default function Main() {
 
   return (
     <div
-      className="container d-flex  login-container"
+      className="container d-flex  login-container "
     >
       <form onSubmit={handleSubmit} className="login-form text-white">
         <div className="row mb-3">
