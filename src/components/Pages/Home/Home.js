@@ -6,9 +6,9 @@ export default function Home() {
   return (
     <div className="d-flex flex-column min-vh-100 login-background">
       <Header />
-      <div className="container-fluid d-flex flex-grow-1 align-items-center align-items-md-end  pb-md-4">
+      <div className="container-fluid d-flex flex-grow-1 align-items-center align-items-md-end pb-md-4">
         <div className="row w-100">
-          <div className="col-md-6 d-none rounded d-md-block main-text">
+          <div className="col-md-6 d-none d-md-flex flex-column justify-content-center align-items-center rounded-pill main-text text-center text-white">
             <h1>Grievance</h1>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime
