@@ -31,7 +31,7 @@
 }
 
 .nav-link{
-  color: rgb(28, 26, 26);
+  color: wheat;
   padding: 0 10px;
   margin: 0 10px;
 }
@@ -53,12 +53,15 @@
 
 .main-text{
   background-color: rgba(14, 10, 10, 0.7);
+  
 }
 
 
 
 .header-active-link{
   color:white;
+  background-color: black;
+  border-radius: 10px;
 }
 .login-form {
   padding: 40px;
