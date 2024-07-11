@@ -6,8 +6,11 @@ export default function Home() {
   return (
     <div className="d-flex flex-column min-vh-100 login-background">
       <Header />
-      <div className="container-fluid flex-grow-1 d-flex align-items-end justify-content-end p-3 mb-5 m-md-0">
-        <Main />
+      <div className="container-fluid d-flex">
+        <div className="col-md-6 d-none d-md-block">Hello</div>
+        <div className="col-md-6">
+          <Main />
+        </div>
       </div>
     </div>
   );
