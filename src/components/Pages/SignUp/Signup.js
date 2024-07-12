@@ -39,16 +39,17 @@ export default function Signup() {
       className="d-flex justify-content-center"
       style={{ marginTop: "6rem" }}
     >
-      <form className="row g-3 signup-container" onSubmit={handleSubmit}>
-        <div className="row" style={{ marginBottom: "5rem" }}>
+      <form className="row g-3 signup-container m-4 m-md-0 p-1 p-md-2 p-lg-5" onSubmit={handleSubmit}>
+        <div className="row" style={{ marginBottom: "4rem" }}>
           <label className="col-sm-2 col-form-label">Role</label>
           <div className="col-sm-4">
             <div className="dropdown">
               <button
-                className="btn dropdown-toggle custome-dropdown"
+                className="btn dropdown-toggle custome-dropdown bg-white"
                 type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+                
               >
                 {formData.role || "Select Role"}
               </button>
