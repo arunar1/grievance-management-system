@@ -1,26 +1,16 @@
-
-
-
-
-
 .login-background{
   background-image: url(./images/bgloginback.jpg);
   background-repeat: no-repeat;
   background-size:cover
 }
 
-
-
 .App-link {
   color: #61dafb;
 }
 
-
 .dropdown-menu.show{
   width: 100%;
 }
-
-
 
 
 @media (min-width: 700px ) {

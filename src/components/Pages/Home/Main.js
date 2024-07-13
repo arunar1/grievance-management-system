@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 export default function Main() {
+
+  const navigate = useNavigate();
   const [userType, setUserType] = useState("User");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,6 +22,15 @@ export default function Main() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    if (userType === "User") {
+      navigate("/user_home");
+    } else if (userType === "Supervisor") {
+      navigate("/supervisor_home");
+    } else if (userType === "Asignee") {
+      navigate("/asignee_home");
+    }
+
 
     console.log("User Type:", userType);
     console.log("Email:", email);
