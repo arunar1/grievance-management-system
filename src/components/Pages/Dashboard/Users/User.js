@@ -4,7 +4,10 @@ export default function User() {
   return (
     <div className="container-fluid" style={{ backgroundColor: "black" }}>
       <div className="row">
-        <div className="col-md-1 bg-black text-md-center"  style={{padding:'20px'}}>
+        <div
+          className="col-md-1 bg-black text-md-center"
+          style={{ padding: "20px" }}
+        >
           <button
             class="bi bi-list"
             type="button"
@@ -35,17 +38,24 @@ export default function User() {
               ></button>
             </div>
             <div class="offcanvas-body text-center">
-             <div className="btn btn-success">Grievance</div>
+              <div className="d-flex flex-column p-5">
+                <div className="btn btn-success m-3">Show Grievance</div>
+                <div className="btn btn-success m-3">Add Grievance</div>
+              </div>
             </div>
           </div>
         </div>
         <div className="col-md-10">
           <div className="row">
             <div className="col-md-6 bg-success">
-              <div className="user-data min-vh-md-100">Profile</div>
+              <div className="user-data min-vh-md-100 align-items-center d-flex justify-content-center">
+                Profile component
+              </div>
             </div>
             <div className="col-md-6 bg-white">
-              <div className="add-grievance min-vh-md-100">Add Grievance</div>
+              <div className="user-data min-vh-md-100 align-items-center d-flex justify-content-center">
+                Add Grievance component
+              </div>
             </div>
           </div>
         </div>
