@@ -79,6 +79,15 @@
   border-radius: 10px;
 }
 
+
+
+
+
+
+.offcanvas-body{
+  padding-top: 20%;
+}
+
 @media (max-width: 700px) {
   .signup-container {
     padding: 20px;
