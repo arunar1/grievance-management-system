@@ -88,6 +88,12 @@
   padding-top: 20%;
 }
 
+
+
+.carousel-item h3{
+    color: orange;
+}
+
 @media (max-width: 700px) {
   .signup-container {
     padding: 20px;
