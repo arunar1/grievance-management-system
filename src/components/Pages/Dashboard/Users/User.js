@@ -55,7 +55,7 @@ export default function User() {
             <div className="col-md-6 bg-white">
               <div className="user-data min-vh-md-100 align-items-center d-flex pt-5 pt-md-0 justify-content-center">
                 <div class="text-secondary pt-5 mt-5 mt-md-0 pt-md-0" style={{ textAlign: "center" }}>
-                  <p class="mb-4">
+                  <p class="mb-4 p-3 p-md-0">
                     Hello! This system enables you to interact with us. You can
                     submit your grievance here, and we will be ready to assist
                     you whenever needed.
