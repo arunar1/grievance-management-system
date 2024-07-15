@@ -23,7 +23,7 @@ export default function Home() {
       <div className="container-fluid d-flex flex-grow-1 align-items-center align-items-md-end pb-md-4">
         <div className="row w-100 ps-md-2">
           <div className="col-lg-7 d-none d-md-flex flex-column justify-content-center align-items-center  text-center text-white">
-            <div className="rounded m-2 p-5 main-text">
+            <div className="rounded m-2 p-4 main-text">
               <div
                 id="carouselExampleAutoplaying"
                 class="carousel slide"
@@ -63,6 +63,9 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+              <Link to="/signup">
+                <button className="btn btn-success">Register</button>
+              </Link>
             </div>
           </div>
 
