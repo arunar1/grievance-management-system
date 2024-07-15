@@ -1,5 +1,5 @@
 import React from "react";
-
+import ProfileComponent from "./ProfileComponent";
 export default function User() {
   return (
     <div className="container-fluid" style={{ backgroundColor: "black" }}>
@@ -9,7 +9,7 @@ export default function User() {
           style={{ padding: "20px" }}
         >
           <button
-            class="bi bi-list"
+            className="bg-black text-white"
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasScrolling"
@@ -48,13 +48,21 @@ export default function User() {
         <div className="col-md-10">
           <div className="row">
             <div className="col-md-6 bg-success">
-              <div className="user-data min-vh-md-100 align-items-center d-flex justify-content-center">
-                Profile component
+              <div className="user-data min-vh-md-100 align-items-center d-flex justify-content-center  pt-4 pb-4 p-lg-5">
+                <ProfileComponent />
               </div>
             </div>
             <div className="col-md-6 bg-white">
-              <div className="user-data min-vh-md-100 align-items-center d-flex justify-content-center">
-                Add Grievance component
+              <div className="user-data min-vh-md-100 align-items-center d-flex pt-5 pt-md-0 justify-content-center">
+                <div class="text-secondary pt-5 pt-md-0" style={{ textAlign: "center" }}>
+                  <p class="mb-4">
+                    Hello! This system enables you to interact with us. You can
+                    submit your grievance here, and we will be ready to assist
+                    you whenever needed.
+                  </p>
+                  <a href="#" class="btn btn-primary">Add Grievance</a>
+
+                </div>
               </div>
             </div>
           </div>
