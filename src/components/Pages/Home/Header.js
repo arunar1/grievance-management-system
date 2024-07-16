@@ -11,13 +11,14 @@ export default function Header() {
           G-Men
         </a>
         <button
-          className="navbar-toggler"
+          className="navbar-toggler mb-3"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarTogglerDemo02"
           aria-controls="navbarTogglerDemo02"
           aria-expanded="false"
           aria-label="Toggle navigation"
+
         >
           {/* <span className="navbar-toggler-icon"></span> */}
           <i class="fa-solid fa-circle-chevron-down fa-2x icon"></i>
