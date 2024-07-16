@@ -11,7 +11,7 @@ export default function Header() {
           G-Men
         </a>
         <button
-          className="navbar-toggler mb-3"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarTogglerDemo02"
@@ -24,7 +24,7 @@ export default function Header() {
           <i class="fa-solid fa-circle-chevron-down fa-2x icon"></i>
         </button>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav ms-auto  mt-3 mb-2 mb-lg-0">
             <li className="nav-item">
               <Link
                 className={`nav-link ${
