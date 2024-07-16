@@ -7,32 +7,34 @@ export default function Home() {
     <div className="d-flex flex-column min-vh-100 login-background">
       <Header />
 
-      {/* <div className="row">
-        <div className="col-6 d-none d-lg-block  m-5 p-1 text-white">
-          <p >
-            Welcome to our Grievance Management System. Easily submit and track
-            your grievances with our secure and user-friendly platform. Register
-            now to ensure your concerns are heard and addressed promptly.
-          </p>
-          <Link to="/signup">
-            <button className="btn btn-success">Register</button>
-          </Link>
-        </div>
-      </div> */}
+      <div className="row">
+        <div className="col-6 d-none d-lg-block  m-5 p-1 text-white"></div>
+      </div>
 
       <div className="container-fluid d-flex flex-grow-1 align-items-center align-items-md-end pb-md-4">
         <div className="row w-100 ps-md-2">
-          <div className="col-lg-7 d-none d-md-flex flex-column justify-content-center align-items-center  text-center text-white">
-            <div className="rounded m-2 p-4 main-text">
+          <div className="col-lg-7 d-none d-lg-flex flex-column justify-content-center align-items-center  text-center text-white">
+            <div className="rounded m-2 p-5 main-text">
               <div
                 id="carouselExampleAutoplaying"
                 class="carousel slide"
                 data-bs-ride="carousel"
-                data-bs-interval="2000"
+                data-bs-interval="3000"
                 data-bs-pause="hover"
               >
                 <div class="carousel-inner">
-                  <div class="carousel-item active">
+                  <div class="carousel-item p-2 active" >
+                    <h5>
+                      Welcome to our Grievance Management System. Easily submit
+                      and track your grievances with our secure and
+                      user-friendly platform. Register now to ensure your
+                      concerns are heard and addressed promptly.
+                    </h5>
+                    <Link to="/signup">
+                      <button className="btn btn-success mt-3">Register</button>
+                    </Link>
+                  </div>
+                  <div class="carousel-item">
                     <h3>Simplified Grievance Submission</h3>
                     <p>
                       Our Grievance Management System makes it easy to submit
@@ -63,9 +65,6 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <Link to="/signup">
-                <button className="btn btn-success">Register</button>
-              </Link>
             </div>
           </div>
 
