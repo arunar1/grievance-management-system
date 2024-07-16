@@ -18,6 +18,11 @@
   color: white;
 }
 
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
 @media (min-width: 700px ) {
   .signup-container {
     width: 60%;
