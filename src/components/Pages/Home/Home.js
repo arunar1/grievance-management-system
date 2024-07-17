@@ -7,10 +7,6 @@ export default function Home() {
     <div className="d-flex flex-column min-vh-100 login-background">
       <Header />
 
-      <div className="row">
-        <div className="col-6 d-none d-lg-block  m-5 p-1 text-white"></div>
-      </div>
-
       <div className="container-fluid d-flex flex-grow-1 align-items-center align-items-md-end pb-md-4">
         <div className="row w-100 ps-md-2">
           <div className="col-lg-7 d-none d-lg-flex flex-column justify-content-center align-items-center  text-center text-white">

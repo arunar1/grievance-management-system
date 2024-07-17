@@ -1,144 +1,38 @@
-.login-background{
-  background-image: url(./images/bgloginback.jpg);
-  background-repeat: no-repeat;
-  background-size:cover
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-.dropdown-menu.show{
-  width: 100%;
-}
-
-
-
-.icon{
-  color: white;
-  text-align: center;
-}
-
-
-.navbar-toggler:focus {
-  box-shadow: none;
-}
-
-@media (min-width: 700px ) {
-  .signup-container {
-    width: 60%;
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
   }
-  
-}
-
-.nav-link{
-  color: wheat;
-  padding: 0 10px;
-  margin: 0 10px;
-}
-
-.nav-link:hover{
-  background-color: azure;
-  border-radius: 10px;
-}
-
-
-.navbar-brand{
-  color: rgb(234, 225, 225);
-}
-
-.nav-header{
-    background-color: rgba(14, 10, 10, 0.7);
-}
-
-
-.main-text{
-  background-color: rgba(14, 10, 10, 0.7);
-  height: 250px;
-  
-}
-
-
-
-.header-active-link{
-  color:white;
-  background-color: black;
-  border-radius: 10px;
-}
-.login-form {
-  padding: 40px;
-  border: 2px solid black;
-  border-radius: 5px;
-  background-color: rgba(14, 10, 10, 0.7);
-}
-.login-form .form-control{
-  background-color:transparent;
-  color: white;
-}
-
-.custome-dropdown{
-    width: 100%;
-    text-align: left;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border:1px solid rgb(201, 193, 193);
-
-}
-
-.signup-container{
-  background-color: #b6e2ee;
-  border-radius: 10px;
-}
-
-
-
-
-
-
-.offcanvas-body{
-  padding-top: 20%;
-}
-
-
-
-.carousel-item h3{
-    color: orange;
-}
-
-@media (max-width: 700px) {
-  .signup-container {
-    padding: 20px;
-    margin-top: -4rem;
-  }
-    .login-form {
-      padding: 20px;
-      border: 2px solid black;
-      border-radius: 5px;
-    }
-}
-@media (max-width:750px) {
-  .login-background {
-    /* background-image: url(./images/loginback.jpeg); */
-    background-image: none;
-    background-color: rgba(2, 2, 11, 0.7);
-  }
-
-  .nav-link {
-    color: rgb(233, 212, 222);
-  }
-  .nav-link:hover{
-    background-color: black;
-    color: blue;
-  }
-    .header-active-link {
-      color: rgb(181, 155, 29);
-    }
-}
-
-
-@media (min-width: 768px) {
-  .min-vh-md-100 {
-    min-height: 100vh;
+  to {
+    transform: rotate(360deg);
   }
 }
