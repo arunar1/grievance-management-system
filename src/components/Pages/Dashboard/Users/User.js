@@ -73,7 +73,7 @@ export default function User() {
             </div>
           </div>
         </div>
-        <div className="col-lg-1 text-center" >
+        <div className=" d-none d-md-block col-md-1 text-center" >
           <i
             class="fa-sharp fa-solid fa-xmark fa-3x  "
             style={{ color: "white",marginTop:"20px" }}
