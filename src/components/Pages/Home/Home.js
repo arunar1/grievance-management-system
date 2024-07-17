@@ -18,8 +18,8 @@ export default function Home() {
                 data-bs-interval="3000"
                 data-bs-pause="hover"
               >
-                <div class="carousel-inner">
-                  <div class="carousel-item p-2 active" >
+                <div class="carousel-inner" >
+                  <div class="carousel-item p-2 active">
                     <h5>
                       Welcome to our Grievance Management System. Easily submit
                       and track your grievances with our secure and

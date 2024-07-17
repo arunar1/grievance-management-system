@@ -1,6 +1,8 @@
 import React from "react";
 import ProfileComponent from "./ProfileComponent";
+import { useNavigate } from "react-router-dom";
 export default function User() {
+  const navigate= useNavigate()
   return (
     <div className="container-fluid" style={{ backgroundColor: "black" }}>
       <div className="row">
@@ -54,18 +56,31 @@ export default function User() {
             </div>
             <div className="col-md-6 bg-white">
               <div className="user-data min-vh-md-100 align-items-center d-flex pt-5 pt-md-0 justify-content-center">
-                <div class="text-secondary pt-5 mt-5 mt-md-0 pt-md-0" style={{ textAlign: "center" }}>
+                <div
+                  class="text-secondary pt-5 mt-5 mt-md-0 pt-md-0"
+                  style={{ textAlign: "center" }}
+                >
                   <p class="mb-4 p-3 p-md-0">
                     Hello! This system enables you to interact with us. You can
                     submit your grievance here, and we will be ready to assist
                     you whenever needed.
                   </p>
-                  <a href="#" class="btn btn-primary">Add Grievance</a>
-
+                  <a href="#" class="btn btn-primary">
+                    Add Grievance
+                  </a>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+        <div className="col-lg-1 text-center" >
+          <i
+            class="fa-sharp fa-solid fa-xmark fa-3x  "
+            style={{ color: "white",marginTop:"20px" }}
+            onClick={()=>{
+              navigate('/')
+            }}
+          ></i>
         </div>
       </div>
     </div>
