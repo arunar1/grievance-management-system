@@ -113,6 +113,16 @@ body{
   color: orange;
 }
 
+
+/* contact page */
+
+.contact-page{
+  background-color:white;
+}
+
+
+
+
 @media (max-width: 700px) {
   .signup-container {
     padding: 20px;

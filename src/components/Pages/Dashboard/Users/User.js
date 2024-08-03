@@ -1,8 +1,8 @@
 import React from "react";
 import ProfileComponent from "./ProfileComponent";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 export default function User() {
-  const navigate= useNavigate()
+  
   return (
     <div className="container-fluid" style={{ backgroundColor: "black" }}>
       <div className="row">
@@ -73,14 +73,13 @@ export default function User() {
             </div>
           </div>
         </div>
-        <div className=" d-none d-md-block col-md-1 text-center" >
-          <i
-            class="fa-sharp fa-solid fa-xmark fa-3x  "
-            style={{ color: "white",marginTop:"20px" }}
-            onClick={()=>{
-              navigate('/')
-            }}
-          ></i>
+        <div className=" d-none d-md-block col-md-1 text-center">
+          <Link to="/">
+            <i
+              class="fa-sharp fa-solid fa-xmark fa-3x  "
+              style={{ color: "white", marginTop: "20px" }}
+            ></i>
+          </Link>
         </div>
       </div>
     </div>
