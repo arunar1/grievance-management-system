@@ -69,7 +69,7 @@ export default function Asignee() {
         <div className=" d-none d-md-block col-md-1 text-center">
           <Link to="/">
             <i
-              class="fa-sharp fa-solid fa-xmark fa-3x  "
+              class="fa-solid fa-right-from-bracket fa-2x"
               style={{ color: "white", marginTop: "20px" }}
             ></i>
           </Link>
