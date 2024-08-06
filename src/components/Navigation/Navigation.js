@@ -8,6 +8,7 @@ import Contact from '../Pages/Contact/Contact'
 import User from '../Pages/Dashboard/Users/User'
 import Supervisor from '../Pages/Dashboard/Supervisor/Supervisor'
 import Asignee from '../Pages/Dashboard/Asignee/Asignee'
+import AddGrievance from '../Pages/Dashboard/Users/AddGrievance'
 
 
 export default function Navigation() {
@@ -29,6 +30,7 @@ export default function Navigation() {
         <Route path="/asignee_home" element={<Asignee />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/user_home/add_grievance" element={<AddGrievance />} />
       </Routes>
     </BrowserRouter>
   );

@@ -65,9 +65,9 @@ export default function User() {
                     submit your grievance here, and we will be ready to assist
                     you whenever needed.
                   </p>
-                  <a href="#" class="btn btn-primary">
+                  <Link to='/user_home/add_grievance' class="btn btn-primary">
                     Add Grievance
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
