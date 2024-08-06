@@ -41,8 +41,10 @@ export default function User() {
             </div>
             <div class="offcanvas-body text-center">
               <div className="d-flex flex-column p-5">
-                <div className="btn btn-success m-3">Show Grievance</div>
-                <div className="btn btn-success m-3">Add Grievance</div>
+                <div className="btn btn-success m-3">Submit New Grievance</div>
+                <div className="btn btn-success m-3">Track My Grievances</div>
+                <div className="btn btn-success m-3">View Grievance Status</div>
+                <div className="btn btn-success m-3">Provide Feedback</div>
               </div>
             </div>
           </div>
@@ -65,8 +67,8 @@ export default function User() {
                     submit your grievance here, and we will be ready to assist
                     you whenever needed.
                   </p>
-                  <Link to='/user_home/add_grievance' class="btn btn-primary">
-                    Add Grievance
+                  <Link to="/user_home/add_grievance" class="btn btn-primary">
+                    Submit New Grievance
                   </Link>
                 </div>
               </div>

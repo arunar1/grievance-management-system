@@ -42,10 +42,12 @@ export default function Supervisor() {
             </div>
             <div class="offcanvas-body text-center">
               <div className="d-flex flex-column p-5">
-                <div className="btn btn-success m-3">Show Grievance</div>
-                <div className="btn btn-success m-3">option 1</div>
-                <div className="btn btn-success m-3">option 2</div>
-                <div className="btn btn-success m-3">option 3</div>
+                <div className="btn btn-success m-3">View All Grievances</div>
+                <div className="btn btn-success m-3">Assign Grievances</div>
+                <div className="btn btn-success m-3">Approve or Reject Grievances</div>
+                <div className="btn btn-success m-3">Monitor Progress</div>
+                <div className="btn btn-success m-3">Generate Reports</div>
+                <div className="btn btn-success m-3">Review User Feedback</div>
               </div>
             </div>
           </div>
