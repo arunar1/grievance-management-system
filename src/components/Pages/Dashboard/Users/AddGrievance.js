@@ -26,18 +26,18 @@ export default function AddGrievance() {
 
   return (
     <div className="container mt-5">
-      <h2 className="mb-4">Submit New Grievance</h2>
+      <h2 className="mb-4">Submit Grievance</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Name:</label>
+          <label>Name</label>
           <input type="text" value="aama" className="form-control" readOnly />
         </div>
-        <div className="form-group">
-          <label>Email:</label>
+        <div className="form-group mt-3">
+          <label>Email</label>
           <input type="email" value="ar@12" className="form-control" readOnly />
         </div>
-        <div className="form-group">
-          <label>Title/Subject:</label>
+        <div className="form-group mt-3">
+          <label>Title/Subject</label>
           <input
             type="text"
             value={title}
@@ -47,8 +47,8 @@ export default function AddGrievance() {
           />
         </div>
 
-        <div className="form-group">
-          <label>Category:</label>
+        <div className="form-group mt-3">
+          <label>Category</label>
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
@@ -63,10 +63,9 @@ export default function AddGrievance() {
             ))}
           </select>
         </div>
-        
 
-        <div className="form-group">
-          <label>Location:</label>
+        <div className="form-group mt-3">
+          <label>Location</label>
           <input
             type="text"
             value={location}
@@ -74,8 +73,8 @@ export default function AddGrievance() {
             className="form-control"
           />
         </div>
-        <div className="form-group">
-          <label>Urgency Level:</label>
+        <div className="form-group mt-3">
+          <label>Urgency Level</label>
           <select
             value={urgency}
             onChange={(e) => setUrgency(e.target.value)}
@@ -88,8 +87,8 @@ export default function AddGrievance() {
             <option value="high">High</option>
           </select>
         </div>
-        <div className="form-group">
-          <label>Description:</label>
+        <div className="form-group mt-3">
+          <label>Description</label>
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
