@@ -25,42 +25,37 @@ export default function AddGrievance() {
   };
 
   return (
-    <div className="grievance-form">
-      <h2>Submit New Grievance</h2>
+    <div className="container mt-5">
+      <h2 className="mb-4">Submit New Grievance</h2>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="form-group">
           <label>Name:</label>
-          <input type="text" value="aama" readOnly />
+          <input type="text" value="aama" className="form-control" readOnly />
         </div>
-        <div>
+        <div className="form-group">
           <label>Email:</label>
-          <input type="email" value="ar@12" readOnly />
+          <input type="email" value="ar@12" className="form-control" readOnly />
         </div>
-        <div>
+        <div className="form-group">
           <label>Title/Subject:</label>
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+            className="form-control"
             required
           />
         </div>
-        <div>
-          <label>Description:</label>
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            required
-          />
-        </div>
-        <div>
+
+        <div className="form-group">
           <label>Category:</label>
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
+            className="form-control"
             required
           >
-            <option value="">Select Category</option>
+            <option value=""></option>
             {categories.map((cat, index) => (
               <option key={index} value={cat}>
                 {cat}
@@ -68,37 +63,43 @@ export default function AddGrievance() {
             ))}
           </select>
         </div>
-        <div>
-          <label>Date of Occurrence:</label>
-          <input
-            type="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-            required
-          />
-        </div>
-        <div>
+        
+
+        <div className="form-group">
           <label>Location:</label>
           <input
             type="text"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
+            className="form-control"
           />
         </div>
-        <div>
+        <div className="form-group">
           <label>Urgency Level:</label>
           <select
             value={urgency}
             onChange={(e) => setUrgency(e.target.value)}
+            className="form-control"
             required
           >
-            <option value="">Select Urgency</option>
+            <option value=""></option>
             <option value="low">Low</option>
             <option value="medium">Medium</option>
             <option value="high">High</option>
           </select>
         </div>
-        <button type="submit">Submit Grievance</button>
+        <div className="form-group">
+          <label>Description:</label>
+          <textarea
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            className="form-control"
+            required
+          />
+        </div>
+        <button type="submit" className="btn btn-primary mt-4">
+          Submit Grievance
+        </button>
       </form>
     </div>
   );
