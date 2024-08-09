@@ -25,81 +25,91 @@ export default function AddGrievance() {
   };
 
   return (
-    <div className="container mt-5">
-      <h2 className="mb-4">Submit Grievance</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Name</label>
-          <input type="text" value="aama" className="form-control" readOnly />
-        </div>
-        <div className="form-group mt-3">
-          <label>Email</label>
-          <input type="email" value="ar@12" className="form-control" readOnly />
-        </div>
-        <div className="form-group mt-3">
-          <label>Title/Subject</label>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            className="form-control"
-            required
-          />
-        </div>
+    <>
+      <div className="backbtn m-2 m-md-5">
+        <i class="fa-solid fa-arrow-left fa-2x"></i>
+      </div>
+      <div className="container mt-5">
+        <h2 className="mb-4">Submit Grievance</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>Name</label>
+            <input type="text" value="aama" className="form-control" readOnly />
+          </div>
+          <div className="form-group mt-3">
+            <label>Email</label>
+            <input
+              type="email"
+              value="ar@12"
+              className="form-control"
+              readOnly
+            />
+          </div>
+          <div className="form-group mt-3">
+            <label>Title/Subject</label>
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className="form-control"
+              required
+            />
+          </div>
 
-        <div className="form-group mt-3">
-          <label>Category</label>
-          <select
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            className="form-control"
-            required
-          >
-            <option value=""></option>
-            {categories.map((cat, index) => (
-              <option key={index} value={cat}>
-                {cat}
-              </option>
-            ))}
-          </select>
-        </div>
+          <div className="form-group mt-3">
+            <label>Category</label>
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              className="form-control"
+              required
+            >
+              <option value=""></option>
+              {categories.map((cat, index) => (
+                <option key={index} value={cat}>
+                  {cat}
+                </option>
+              ))}
+            </select>
+          </div>
 
-        <div className="form-group mt-3">
-          <label>Location</label>
-          <input
-            type="text"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            className="form-control"
-          />
-        </div>
-        <div className="form-group mt-3">
-          <label>Urgency Level</label>
-          <select
-            value={urgency}
-            onChange={(e) => setUrgency(e.target.value)}
-            className="form-control"
-            required
-          >
-            <option value=""></option>
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-          </select>
-        </div>
-        <div className="form-group mt-3">
-          <label>Description</label>
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            className="form-control"
-            required
-          />
-        </div>
-        <button type="submit" className="btn btn-primary mt-4">
-          Submit Grievance
-        </button>
-      </form>
-    </div>
+          <div className="form-group mt-3">
+            <label>Location</label>
+            <input
+              type="text"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+              className="form-control"
+            />
+          </div>
+          <div className="form-group mt-3">
+            <label>Urgency Level</label>
+            <select
+              value={urgency}
+              onChange={(e) => setUrgency(e.target.value)}
+              className="form-control"
+              required
+            >
+              <option value=""></option>
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <div className="form-group mt-3">
+            <label>Description</label>
+            <textarea
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              className="form-control"
+              required
+            />
+          </div>
+          <button type="submit" className="btn btn-primary mt-4 mb-4">
+            Submit Grievance
+          </button>
+        </form>
+      </div>
+    </>
   );
 }
