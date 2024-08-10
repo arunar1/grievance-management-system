@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 export default function AddGrievance() {
+  const navigation = useNavigate();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
@@ -27,7 +28,9 @@ export default function AddGrievance() {
   return (
     <>
       <div className="backbtn m-2 m-md-5">
-        <i class="fa-solid fa-arrow-left fa-2x"></i>
+        <i class="btn fa-solid fa-arrow-left fa-2x" onClick={()=>{
+            navigation(-1);
+        }}></i>
       </div>
       <div className="container mt-5">
         <h2 className="mb-4">Submit Grievance</h2>
