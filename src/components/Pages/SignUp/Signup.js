@@ -36,7 +36,7 @@ export default function Signup() {
 
   return (
     <div
-      className="d-flex justify-content-center"
+      className="d-flex justify-content-center mb-2"
       style={{ marginTop: "6rem" }}
     >
       <form className="row g-3 signup-container m-4 m-md-0 p-1 p-md-2 p-lg-5" onSubmit={handleSubmit}>
