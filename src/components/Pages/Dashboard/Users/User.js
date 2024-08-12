@@ -1,8 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import ProfileComponent from "./ProfileComponent";
 import { Link } from "react-router-dom";
 export default function User() {
-  
+  const navigate = useNavigate();
   return (
     <div className="container-fluid" style={{ backgroundColor: "black" }}>
       <div className="row">
@@ -41,8 +42,22 @@ export default function User() {
             </div>
             <div class="offcanvas-body text-center">
               <div className="d-flex flex-column p-5">
-                <div className="btn btn-success m-3">Submit New Grievance</div>
-                <div className="btn btn-success m-3">Track My Grievances</div>
+                <div
+                  className="btn btn-success m-3"
+                  onClick={() => {
+                    navigate("/user_home/add_grievance");
+                  }}
+                >
+                  Submit New Grievance
+                </div>
+                <div
+                  className="btn btn-success m-3"
+                  onClick={() => {
+                    navigate("/user_home/track_grievance");
+                  }}
+                >
+                  Track My Grievances
+                </div>
                 <div className="btn btn-success m-3">View Grievance Status</div>
                 <div className="btn btn-success m-3">Provide Feedback</div>
               </div>
@@ -76,12 +91,13 @@ export default function User() {
           </div>
         </div>
         <div className=" d-none d-md-block col-md-1 text-center">
-          <Link to="/">
-            <i
-              class="fa-solid fa-right-from-bracket fa-2x"
-              style={{ color: "white", marginTop: "20px" }}
-            ></i>
-          </Link>
+          <i
+            onClick={() => {
+              navigate("/");
+            }}
+            class="btn fa-solid fa-right-from-bracket fa-2x"
+            style={{ color: "white", marginTop: "20px" }}
+          ></i>
         </div>
       </div>
     </div>
