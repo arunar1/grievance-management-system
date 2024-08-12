@@ -10,6 +10,8 @@ import Supervisor from '../Pages/Dashboard/Supervisor/Supervisor'
 import Asignee from '../Pages/Dashboard/Asignee/Asignee'
 import AddGrievance from '../Pages/Dashboard/Users/AddGrievance'
 import TrackGrievance from '../Pages/Dashboard/Users/TrackGrievance'
+import ViewStatus from '../Pages/Dashboard/Users/ViewStatus'
+import AddFeedback from '../Pages/Dashboard/Users/AddFeedback'
 
 export default function Navigation() {
   return (
@@ -27,8 +29,13 @@ export default function Navigation() {
         />
         <Route path="/user_home" element={<User />} />
         <Route path="/user_home/track_grievance" element={<TrackGrievance />} />
+        <Route path="/user_home/view_status" element={<ViewStatus />} />
+        <Route path="/user_home/add_feedback" element={<AddFeedback />} />
+
         <Route path="/supervisor_home" element={<Supervisor />} />
+        
         <Route path="/asignee_home" element={<Asignee />} />
+        
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/user_home/add_grievance" element={<AddGrievance />} />
