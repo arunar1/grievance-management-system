@@ -26,13 +26,16 @@ export default function AddGrievance() {
   };
 
   return (
-    <>
-      <div className="backbtn m-2 m-md-5">
-        <i class="btn fa-solid fa-arrow-left fa-2x" onClick={()=>{
+    <div className="m-3 m-md-0">
+      <div className="backbtn m-md-5">
+        <i
+          class="btn fa-solid fa-arrow-left fa-2x"
+          onClick={() => {
             navigation(-1);
-        }}></i>
+          }}
+        ></i>
       </div>
-      <div className="container mt-5">
+      <div className="container  mt-5">
         <h2 className="mb-4">Submit Grievance</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
@@ -113,6 +116,6 @@ export default function AddGrievance() {
           </button>
         </form>
       </div>
-    </>
+    </div>
   );
 }
