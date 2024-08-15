@@ -1,7 +1,10 @@
 import React from 'react'
 import ProfileComponent from '../Users/ProfileComponent';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 export default function Asignee() {
+    const navigate = useNavigate();
+
 
   return (
     <div className="container-fluid" style={{ backgroundColor: "black" }}>
@@ -41,10 +44,38 @@ export default function Asignee() {
             </div>
             <div class="offcanvas-body text-center">
               <div className="d-flex flex-column p-5">
-                <div className="btn btn-success m-3">View My Assignments</div>
-                <div className="btn btn-success m-3">Update Grievance Status</div>
-                <div className="btn btn-success m-3">Close Grievance</div>
-                <div className="btn btn-success m-3">Track Workload</div>
+                <div
+                  className="btn btn-success m-3"
+                  onClick={() => {
+                    navigate("/asignee_home/view_my_assignment");
+                  }}
+                >
+                  View My Assignments
+                </div>
+                <div
+                  className="btn btn-success m-3"
+                  onClick={() => {
+                    navigate("/asignee_home/update_grievance_status");
+                  }}
+                >
+                  Update Grievance Status
+                </div>
+                <div
+                  className="btn btn-success m-3"
+                  onClick={() => {
+                    navigate("/asignee_home/close_grievance");
+                  }}
+                >
+                  Close Grievance
+                </div>
+                <div
+                  className="btn btn-success m-3"
+                  onClick={() => {
+                    navigate("/asignee_home/track_workload");
+                  }}
+                >
+                  Track Workload
+                </div>
               </div>
             </div>
           </div>

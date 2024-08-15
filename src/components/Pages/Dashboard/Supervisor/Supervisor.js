@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import ProfileComponent from "../Users/ProfileComponent";
 import { Link } from 'react-router-dom';
 export default function Supervisor() {
+  const navigate = useNavigate();
 
   return (
     <div className="container-fluid" style={{ backgroundColor: "black" }}>
