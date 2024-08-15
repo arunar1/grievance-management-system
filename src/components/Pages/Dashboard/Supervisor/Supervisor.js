@@ -42,12 +42,54 @@ export default function Supervisor() {
             </div>
             <div class="offcanvas-body text-center">
               <div className="d-flex flex-column p-5">
-                <div className="btn btn-success m-3">View All Grievances</div>
-                <div className="btn btn-success m-3">Assign Grievances</div>
-                <div className="btn btn-success m-3">Approve or Reject Grievances</div>
-                <div className="btn btn-success m-3">Monitor Progress</div>
-                <div className="btn btn-success m-3">Generate Reports</div>
-                <div className="btn btn-success m-3">Review User Feedback</div>
+                <div
+                  className="btn btn-success m-3"
+                  onClick={() => {
+                    navigate("/supervisor_home/view_all_grievance");
+                  }}
+                >
+                  View All Grievances
+                </div>
+                <div
+                  className="btn btn-success m-3"
+                  onClick={() => {
+                    navigate("/supervisor_home/assign_grievance");
+                  }}
+                >
+                  Assign Grievances
+                </div>
+                <div
+                  className="btn btn-success m-3"
+                  onClick={() => {
+                    navigate("/supervisor_home/approve_reject_grievance");
+                  }}
+                >
+                  Approve or Reject Grievances
+                </div>
+                <div
+                  className="btn btn-success m-3"
+                  onClick={() => {
+                    navigate("/supervisor_home/monitor_progress");
+                  }}
+                >
+                  Monitor Progress
+                </div>
+                <div
+                  className="btn btn-success m-3"
+                  onClick={() => {
+                    navigate("/supervisor_home/generate_report");
+                  }}
+                >
+                  Generate Reports
+                </div>
+                <div
+                  className="btn btn-success m-3"
+                  onClick={() => {
+                    navigate("/supervisor_home/review_user_feedback");
+                  }}
+                >
+                  Review User Feedback
+                </div>
               </div>
             </div>
           </div>
