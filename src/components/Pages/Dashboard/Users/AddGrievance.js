@@ -38,7 +38,7 @@ export default function AddGrievance() {
       <div className="container  mt-5">
         <h2 className="mb-4">Submit Grievance</h2>
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
+          {/* <div className="form-group">
             <label>Name</label>
             <input type="text" value="aama" className="form-control" readOnly />
           </div>
@@ -50,9 +50,9 @@ export default function AddGrievance() {
               className="form-control"
               readOnly
             />
-          </div>
+          </div> */}
           <div className="form-group mt-3">
-            <label>Title/Subject</label>
+            <label>Subject</label>
             <input
               type="text"
               value={title}
@@ -86,6 +86,7 @@ export default function AddGrievance() {
               value={location}
               onChange={(e) => setLocation(e.target.value)}
               className="form-control"
+              required
             />
           </div>
           <div className="form-group mt-3">
