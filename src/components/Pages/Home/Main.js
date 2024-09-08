@@ -1,6 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { userDetailsContext } from "../../Hooks/context/UserDetails";
 export default function Main() {
+
+   const { userDetail, setUserDetails } = useContext(userDetailsContext);
+
 
   const navigate = useNavigate();
   const [userType, setUserType] = useState("User");
@@ -20,8 +25,36 @@ export default function Main() {
     setPassword(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async(event) => {
     event.preventDefault();
+
+       try {
+      const response = await axios.get("http://localhost:8080/getUser", {
+        params: { email: email, password: password },
+      });
+
+      if (response.data) {
+        // console.log("Response:", response.data);
+        setUserDetails(response.data);
+        console.log(response.status);
+        console.log(userDetail);
+
+        if(response.status===200){
+          if (userType === "User") {
+            navigate("/user_home");
+          } else if (userType === "Supervisor") {
+            navigate("/supervisor_home");
+          } else if (userType === "Asignee") {
+            navigate("/asignee_home");
+          }
+        }
+      } else {
+        console.log("User not found or invalid credentials");
+      }
+    } catch (error) {
+      console.error("Error during request:", error);
+    }
+    
 
     if (userType === "User") {
       navigate("/user_home");

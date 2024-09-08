@@ -13,6 +13,8 @@ import TrackGrievance from '../Pages/Dashboard/Users/TrackGrievance'
 import ViewStatus from '../Pages/Dashboard/Users/ViewStatus'
 import AddFeedback from '../Pages/Dashboard/Users/AddFeedback'
 
+import { UserDetails} from '../Hooks/context/UserDetails'
+import { UserGrievance } from '../Hooks/context/UserGrievance'
 
 import ApproveRejectGrievance from '../Pages/Dashboard/Supervisor/ApproveRejectGrievance'
 import { AssignGrievance } from '../Pages/Dashboard/Supervisor/AssignGrievance'
@@ -30,74 +32,78 @@ import ViewMyAssignments from '../Pages/Dashboard/Asignee/ViewMyAssignments'
 
 export default function Navigation() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/signup"
-          element={
-            <>
-              <Header />
-              <Signup />
-            </>
-          }
-        />
-        <Route path="/user_home" element={<User />} />
-        <Route path="/user_home/track_grievance" element={<TrackGrievance />} />
-        <Route path="/user_home/view_status" element={<ViewStatus />} />
-        <Route path="/user_home/add_feedback" element={<AddFeedback />} />
+    <UserDetails>
+      <UserGrievance>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route
+              path="/signup"
+              element={
+                <>
+                  <Header />
+                  <Signup />
+                </>
+              }
+            />
 
-        <Route
-          path="/supervisor_home"
-          element={<Supervisor />}
-        />
-        <Route
-          path="/supervisor_home/assign_grievance"
-          element={<AssignGrievance />}
-        />
-        <Route
-          path="/supervisor_home/approve_reject_grievance"
-          element={<ApproveRejectGrievance />}
-        />
-        <Route
-          path="/supervisor_home/generate_report"
-          element={<GenerateReport />}
-        />
-        <Route
-          path="/supervisor_home/monitor_progress"
-          element={<MonitorProgress />}
-        />
-        <Route
-          path="/supervisor_home/review_user_feedback"
-          element={<ReviewUserFeedback />}
-        />
-        <Route
-          path="/supervisor_home/view_all_grievance"
-          element={<ViewAllGrievance />}
-        />
+            <Route path="/user_home" element={<User />} />
+            <Route
+              path="/user_home/track_grievance"
+              element={<TrackGrievance />}
+            />
+            <Route path="/user_home/view_status" element={<ViewStatus />} />
+            <Route path="/user_home/add_feedback" element={<AddFeedback />} />
+            <Route path="/supervisor_home" element={<Supervisor />} />
+            <Route
+              path="/supervisor_home/assign_grievance"
+              element={<AssignGrievance />}
+            />
+            <Route
+              path="/supervisor_home/approve_reject_grievance"
+              element={<ApproveRejectGrievance />}
+            />
+            <Route
+              path="/supervisor_home/generate_report"
+              element={<GenerateReport />}
+            />
+            <Route
+              path="/supervisor_home/monitor_progress"
+              element={<MonitorProgress />}
+            />
+            <Route
+              path="/supervisor_home/review_user_feedback"
+              element={<ReviewUserFeedback />}
+            />
+            <Route
+              path="/supervisor_home/view_all_grievance"
+              element={<ViewAllGrievance />}
+            />
 
-        <Route path="/asignee_home" element={<Asignee />} />
-        <Route
-          path="/asignee_home/close_grievance"
-          element={<CloseGrievance />}
-        />
-        <Route
-          path="/asignee_home/track_workload"
-          element={<TrackWorkload />}
-        />
-        <Route
-          path="/asignee_home/update_grievance_status"
-          element={<UpdateGrievanceStatus />}
-        />
-        <Route
-          path="/asignee_home/view_my_assignment"
-          element={<ViewMyAssignments />}
-        />
+            <Route path="/asignee_home" element={<Asignee />} />
+            <Route
+              path="/asignee_home/close_grievance"
+              element={<CloseGrievance />}
+            />
+            <Route
+              path="/asignee_home/track_workload"
+              element={<TrackWorkload />}
+            />
+            <Route
+              path="/asignee_home/update_grievance_status"
+              element={<UpdateGrievanceStatus />}
+            />
+            <Route
+              path="/asignee_home/view_my_assignment"
+              element={<ViewMyAssignments />}
+            />
 
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/user_home/add_grievance" element={<AddGrievance />} />
-      </Routes>
-    </BrowserRouter>
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/user_home/add_grievance" element={<AddGrievance />} />
+          </Routes>
+        </BrowserRouter>
+      </UserGrievance>
+    </UserDetails>
   );
 }

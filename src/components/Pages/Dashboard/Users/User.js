@@ -1,8 +1,35 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ProfileComponent from "./ProfileComponent";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { userDetailsContext } from "../../../Hooks/context/UserDetails";
+import { userGrievanceContext } from "../../../Hooks/context/UserGrievance";
 export default function User() {
+   const { userDetail, setUserDetails } = useContext(userDetailsContext);
+   const {userGrievance,setUserGrievance} = useContext(userGrievanceContext);
+
+  useEffect(()=>{
+
+    const fetchData = async()=>{
+      try {
+        const response = await axios.get(
+          "http://localhost:8080/getGrievanceByDetail",
+          { params: {email:userDetail.email} }
+        );
+        
+        console.log(response.data)
+        setUserGrievance(response.data);
+      
+      } catch (error) {
+        
+      }
+    }
+    fetchData()
+  },[userDetail.email])
+
+
+
   const navigate = useNavigate();
   return (
     <div className="container-fluid" style={{ backgroundColor: "black" }}>

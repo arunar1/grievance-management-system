@@ -1,27 +1,67 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { userDetailsContext } from "../../../Hooks/context/UserDetails";
 export default function AddGrievance() {
+
+ const [categories, setCategories] = useState([]);
+
+ const fetchCategories = async () => {
+   try {
+     const response = await axios.get(
+       "http://localhost:8080/distinctCategories"
+     );
+     setCategories(response.data);
+     console.log(response.data);
+     
+   } catch (error) {
+     console.error("Error fetching categories:", error);
+   }
+ };
+ useEffect(() => {
+   fetchCategories();
+ }, []);
+
+ console.log(categories)
+
+
+
+  const{userDetail,setUserDetails}=useContext(userDetailsContext);
   const navigation = useNavigate();
-  const [title, setTitle] = useState("");
+  const [subject, setSubject] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
-  const [date, setDate] = useState("");
   const [location, setLocation] = useState("");
-  const [urgency, setUrgency] = useState("");
+  const [urgencyLevel, setUrgency] = useState("");
+  const [email,SetEmail]=useState(userDetail.email);
 
-  const categories = ["Category 1", "Category 2", "Category 3"];
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async(event) => {
     event.preventDefault();
+    try {
+      const response =await axios.post("http://localhost:8080/addGrievance",{
+        subject,description,category,location,urgencyLevel,email
+      });
+
+      console.log(response)
+      if (response.data.success) {
+        alert("Grievance submitted successfully");
+        setSubject("");
+        setDescription("");
+        setCategory("");
+        setLocation("");
+        setUrgency("");
+      }
+      
+    } catch (error) {
+      
+    }
     console.log({
-      name: "aama",
-      email: "ar@12",
-      title,
+      subject,
       description,
       category,
-      date,
       location,
-      urgency,
+      urgencyLevel,
     });
   };
 
@@ -38,25 +78,13 @@ export default function AddGrievance() {
       <div className="container  mt-5">
         <h2 className="mb-4">Submit Grievance</h2>
         <form onSubmit={handleSubmit}>
-          {/* <div className="form-group">
-            <label>Name</label>
-            <input type="text" value="aama" className="form-control" readOnly />
-          </div>
-          <div className="form-group mt-3">
-            <label>Email</label>
-            <input
-              type="email"
-              value="ar@12"
-              className="form-control"
-              readOnly
-            />
-          </div> */}
+          
           <div className="form-group mt-3">
             <label>Subject</label>
             <input
               type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
               className="form-control"
               required
             />
@@ -92,7 +120,7 @@ export default function AddGrievance() {
           <div className="form-group mt-3">
             <label>Urgency Level</label>
             <select
-              value={urgency}
+              value={urgencyLevel}
               onChange={(e) => setUrgency(e.target.value)}
               className="form-control"
               required

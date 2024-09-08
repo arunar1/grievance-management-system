@@ -1,13 +1,23 @@
 import React from 'react'
-
+import { useContext } from 'react';
+import { userDetailsContext } from '../../../Hooks/context/UserDetails';
 export default function ProfileComponent() {
+
+  const { userDetail, setUserDetails } = useContext(userDetailsContext);
+  console.log(userDetail)
+
   return (
     <div className="container-fluid   p-lg-5  ">
       <div class="card align-items-center">
         <i class="fa-solid fa-user fa-4x mt-3 "></i>
         <div class="card-body rounded-pill" style={{ textAlign: "center" }}>
-          <h5 class="card-title pb-2 text-uppercase">Arun A R</h5>
-          
+          <h5 class="card-title pb-2 text-uppercase">
+            {userDetail.firstName.trim()} &nbsp; {userDetail.lastName.trim()}
+          </h5>
+          <h6 class="card-title pb-2 text-uppercase text-secondary">
+            {userDetail.userType}
+          </h6>
+
           {/* <p class="card-text ">
             Email : <span>arun@123gmail.com</span>
           </p>

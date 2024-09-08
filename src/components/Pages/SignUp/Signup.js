@@ -1,16 +1,17 @@
+import axios from "axios";
 import React, { useState } from "react";
 
 export default function Signup() {
   const [formData, setFormData] = useState({
     passCode: "",
     category: "",
-    role: "User",
+    userType: "User",
     firstName: "",
     lastName: "",
     email: "",
     password: "",
-    city: "",
-    zip: "",
+    location: "",
+    phone: "",
     agree: false,
   });
 
@@ -22,24 +23,61 @@ export default function Signup() {
     });
   };
 
-  const handleRoleChange = (role) => {
+  const handleRoleChange = (userType) => {
     setFormData({
       ...formData,
-      role,
+      userType,
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
+    const { firstName, lastName, email, password , category, phone , location, userType} = formData; 
+
     console.log(formData);
+    try {
+      const response = await axios.post("http://localhost:8080/addUser", {
+        firstName,
+        lastName,
+        email,
+        password,
+        category,
+        phone,
+        location,
+        userType,
+      });
+
+      console.log(response.data);
+      if(response.data.success){
+        alert("Registration is Successful");
+         setFormData({
+           passCode: "",
+           category: "",
+           userType: "User",
+           firstName: "",
+           lastName: "",
+           email: "",
+           password: "",
+           location: "",
+           phone: "",
+           agree: false,
+         });
+      }
+      else{
+        alert(response.data.message)
+      }
+    } catch (error) {}
   };
 
   return (
     <div
       className="d-flex justify-content-center mb-2"
-      style={{ marginTop: "6rem" }}
+      style={{ marginTop: "4rem" }}
     >
-      <form className="row g-3 signup-container m-4 m-md-0 p-1 p-md-2 p-lg-5" onSubmit={handleSubmit}>
+      <form
+        className="row g-3 signup-container m-4 m-md-0 p-1 p-md-2 p-lg-5"
+        onSubmit={handleSubmit}
+      >
         <div className="row" style={{ marginBottom: "4rem" }}>
           <label className="col-sm-2 col-form-label">Role</label>
           <div className="col-sm-4">
@@ -49,19 +87,18 @@ export default function Signup() {
                 type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
-                
               >
-                {formData.role || "Select Role"}
+                {formData.userType || "Select Role"}
               </button>
               <ul className="dropdown-menu">
-                {["User", "Supervisor", "Asignee"].map((role) => (
-                  <li key={role}>
+                {["User", "Supervisor", "Asignee"].map((userType) => (
+                  <li key={userType}>
                     <a
                       className="dropdown-item"
                       href="#"
-                      onClick={() => handleRoleChange(role)}
+                      onClick={() => handleRoleChange(userType)}
                     >
-                      {role}
+                      {userType}
                     </a>
                   </li>
                 ))}
@@ -99,7 +136,7 @@ export default function Signup() {
           </div>
         </div>
         <div className="row mb-3">
-          {formData.role !== "User" ? (
+          {formData.userType !== "User" ? (
             <div className="col-md-6 mb-3 mb-md-0">
               <label htmlFor="inputFirstname4" className="form-label">
                 Pass Code
@@ -114,24 +151,19 @@ export default function Signup() {
               />
             </div>
           ) : null}
-          {formData.role === "Asignee" ? (
+          {formData.userType === "Asignee" ? (
             <div className="col-md-6">
               <label htmlFor="inputCategory4" className="form-label">
                 Category
               </label>
-              <select
+              <input
+                type="text"
                 className="form-control"
                 id="inputCategory4"
                 name="category"
                 value={formData.category}
                 onChange={handleChange}
-              >
-                <option ></option>
-                <option value="category1">Category 1</option>
-                <option value="category2">Category 2</option>
-                <option value="category3">Category 3</option>
-                {/* Add more options as needed */}
-              </select>
+              />
             </div>
           ) : null}
         </div>
@@ -172,21 +204,21 @@ export default function Signup() {
               type="text"
               className="form-control"
               id="inputCity"
-              name="city"
-              value={formData.city}
+              name="location"
+              value={formData.location}
               onChange={handleChange}
             />
           </div>
           <div className="col-md-6">
-            <label htmlFor="inputZip" className="form-label">
-              Zip
+            <label htmlFor="inputPhone" className="form-label">
+              Phone Number
             </label>
             <input
               type="tel"
               className="form-control"
-              id="inputZip"
-              name="zip"
-              value={formData.zip}
+              id="inputPhone"
+              name="phone"
+              value={formData.phone}
               onChange={handleChange}
             />
           </div>
