@@ -6,8 +6,10 @@ import axios from "axios";
 import { userDetailsContext } from "../../../Hooks/context/UserDetails";
 import { userGrievanceContext } from "../../../Hooks/context/UserGrievance";
 export default function User() {
-   const { userDetail, setUserDetails } = useContext(userDetailsContext);
-   const {userGrievance,setUserGrievance} = useContext(userGrievanceContext);
+   const { userDetail} = useContext(userDetailsContext);
+   const { setUserGrievance,userGrievance, refresh } = useContext(userGrievanceContext);
+
+   console.log(refresh)
 
   useEffect(()=>{
 
@@ -18,7 +20,6 @@ export default function User() {
           { params: {email:userDetail.email} }
         );
         
-        console.log(response.data)
         setUserGrievance(response.data);
       
       } catch (error) {
@@ -26,7 +27,9 @@ export default function User() {
       }
     }
     fetchData()
-  },[userDetail.email])
+  },[refresh])
+
+  
 
 
 
