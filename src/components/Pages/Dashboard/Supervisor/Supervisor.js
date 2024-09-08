@@ -59,14 +59,14 @@ export default function Supervisor() {
                 >
                   Assign Grievances
                 </div>
-                <div
+                {/* <div
                   className="btn btn-success m-3"
                   onClick={() => {
                     navigate("/supervisor_home/approve_reject_grievance");
                   }}
                 >
                   Approve or Reject Grievances
-                </div>
+                </div> */}
                 <div
                   className="btn btn-success m-3"
                   onClick={() => {

@@ -9,7 +9,7 @@ export default function TrackGrievance() {
   const navigation = useNavigate();
   const { userGrievance } = useContext(userGrievanceContext);
   console.log(userGrievance)
-  const Card = userGrievance.map((item)=>{
+  const Card = userGrievance.reverse().map((item)=>{
     return <GrievanceCard data={item} />;
   })
 
@@ -20,11 +20,12 @@ export default function TrackGrievance() {
         <i
           class="btn fa-solid fa-arrow-left fa-2x"
           onClick={(e) => {
-            e.stopPropagation(); 
+            e.stopPropagation();
             navigation(-1);
           }}
         ></i>
       </div>
+      <h2 className="mb-4 container">Grievances</h2>
       {Card}
     </div>
   );

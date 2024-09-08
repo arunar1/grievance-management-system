@@ -4,7 +4,7 @@ import { userDetailsContext } from '../../../Hooks/context/UserDetails';
 export default function ProfileComponent() {
 
   const { userDetail, setUserDetails } = useContext(userDetailsContext);
-  console.log(userDetail)
+  // console.log(userDetail)
 
   return (
     <div className="container-fluid   p-lg-5  ">
@@ -12,7 +12,8 @@ export default function ProfileComponent() {
         <i class="fa-solid fa-user fa-4x mt-3 "></i>
         <div class="card-body rounded-pill" style={{ textAlign: "center" }}>
           <h5 class="card-title pb-2 text-uppercase">
-            {userDetail.firstName.trim()} &nbsp; {userDetail.lastName.trim()}
+            {userDetail.firstName ? userDetail.firstName.trim() : null} &nbsp;{" "}
+            {userDetail.lastName ? userDetail.lastName.trim() : null}
           </h5>
           <h6 class="card-title pb-2 text-uppercase text-secondary">
             {userDetail.userType}
