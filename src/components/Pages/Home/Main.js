@@ -25,50 +25,33 @@ export default function Main() {
     setPassword(event.target.value);
   };
 
-  const handleSubmit = async(event) => {
-    event.preventDefault();
+ const handleSubmit = async (event) => {
+   event.preventDefault();
 
-       try {
-      const response = await axios.get("http://localhost:8080/getUser", {
-        params: { email: email, password: password },
-      });
+   try {
+     const response = await axios.get("http://localhost:8080/getUser", {
+       params: { email: email, password: password },
+     });
 
-      if (response.data) {
-        // console.log("Response:", response.data);
-        setUserDetails(response.data);
-        console.log(response.status);
-        console.log(userDetail);
+     if (response.data) {
+       setUserDetails(response.data);
 
-        if(response.status===200){
-          if (userType === "User") {
-            navigate("/user_home");
-          } else if (userType === "Supervisor") {
-            navigate("/supervisor_home");
-          } else if (userType === "Asignee") {
-            navigate("/asignee_home");
-          }
-        }
-      } else {
-        console.log("User not found or invalid credentials");
-      }
-    } catch (error) {
-      console.error("Error during request:", error);
-    }
-    
-
-    if (userType === "User") {
-      navigate("/user_home");
-    } else if (userType === "Supervisor") {
-      navigate("/supervisor_home");
-    } else if (userType === "Asignee") {
-      navigate("/asignee_home");
-    }
-
-
-    console.log("User Type:", userType);
-    console.log("Email:", email);
-    console.log("Password:", password);
-  };
+       if (response.status === 200) {
+         if (response.data.userType === "User") {
+           navigate("/user_home");
+         } else if (response.data.userType === "Supervisor") {
+           navigate("/supervisor_home");
+         } else if (response.data.userType === "Asignee") {
+           navigate("/asignee_home");
+         }
+       }
+     } else {
+       console.log("User not found or invalid credentials");
+     }
+   } catch (error) {
+     console.error("Error during request:", error);
+   }
+ };
 
   return (
     <div

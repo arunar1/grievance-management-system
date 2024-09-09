@@ -1,9 +1,33 @@
-import React from 'react'
+import React, { useContext,useEffect } from 'react'
 import ProfileComponent from '../Users/ProfileComponent';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { userDetailsContext } from '../../../Hooks/context/UserDetails';
+import axios from 'axios';
+import { assigneeGrievanceContext } from '../../../Hooks/context/AsigneeGrievance';
+
 export default function Asignee() {
-    const navigate = useNavigate();
+  const {userDetail} = useContext(userDetailsContext);
+      const {assigneeGrievance, setAssigneeGrievance} = useContext(assigneeGrievanceContext);
+
+  const navigate = useNavigate();
+
+   useEffect(() => {
+     const fetchData = async () => {
+       try {
+         const response = await axios.get(
+           "http://localhost:8080/grievanceByCategory",
+           { params: { category: userDetail.category} }
+         );
+
+        //  console.log(response.data)
+         if(response.status==200){
+          setAssigneeGrievance(response.data);
+         }
+       } catch (error) {}
+     };
+     fetchData();
+   }, []);
 
 
   return (

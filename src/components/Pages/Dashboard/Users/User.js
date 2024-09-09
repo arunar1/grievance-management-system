@@ -88,14 +88,14 @@ export default function User() {
                 >
                   Track My Grievances
                 </div>
-                <div
+                {/* <div
                   className="btn btn-success m-3"
                   onClick={() => {
                     navigate("/user_home/view_status");
                   }}
                 >
                   View Grievance Status
-                </div>
+                </div> */}
                 <div
                   className="btn btn-success m-3"
                   onClick={() => {

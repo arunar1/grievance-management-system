@@ -9,7 +9,7 @@ export default function TrackGrievance() {
   const navigation = useNavigate();
   const { userGrievance } = useContext(userGrievanceContext);
   console.log(userGrievance)
-  const Card = userGrievance.reverse().map((item)=>{
+  const Card = [...userGrievance].reverse().map((item)=>{
     return <GrievanceCard data={item} />;
   })
 
