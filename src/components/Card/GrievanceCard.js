@@ -182,6 +182,11 @@ export const GrievanceCard = (props) => {
               </button>
             </div>
           )}
+          {userDetail.userType != "User" && (
+            <p>
+              <strong>Email :</strong> {email}
+            </p>
+          )}
           <div className="col-md-6 col-12 mb-2 pe-lg-5">
             <strong>Subject :</strong> {subject}
           </div>
@@ -220,11 +225,6 @@ export const GrievanceCard = (props) => {
       {isModalOpen && (
         <div className="modal-overlay">
           <div className="modal-content">
-            {userDetail.userType != "User" && (
-              <p>
-                <strong>Email :</strong> {email}
-              </p>
-            )}
             <p>
               <strong>Date :</strong> {date}
             </p>

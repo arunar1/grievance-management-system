@@ -88,14 +88,7 @@ useEffect(() => {
                 >
                   View Grievances
                 </div>
-                <div
-                  className="btn btn-success m-3"
-                  onClick={() => {
-                    navigate("/supervisor_home/assign_grievance");
-                  }}
-                >
-                  Assignies
-                </div>
+
                 {/* <div
                   className="btn btn-success m-3"
                   onClick={() => {
@@ -127,6 +120,14 @@ useEffect(() => {
                   }}
                 >
                   User Feedbacks
+                </div>
+                <div
+                  className="btn btn-success m-3"
+                  onClick={() => {
+                    navigate("/supervisor_home/assign_grievance");
+                  }}
+                >
+                  Assignees
                 </div>
               </div>
             </div>
