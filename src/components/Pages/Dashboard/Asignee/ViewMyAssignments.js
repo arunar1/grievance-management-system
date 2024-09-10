@@ -7,7 +7,7 @@ export default function ViewMyAssignments() {
 
   console.log(assigneeGrievance)
   const navigation = useNavigate();
-  const Card = assigneeGrievance.map((item)=>{
+  const Card = assigneeGrievance.filter((item)=>item.status!="Resolved").map((item)=>{
     return <GrievanceCard data={item} />;
   })
 

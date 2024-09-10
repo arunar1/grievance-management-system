@@ -188,20 +188,25 @@ export const GrievanceCard = (props) => {
           <div className="col-md-6 col-12 mb-2">
             <strong>Status:</strong> {grievanceStatus}
           </div>
+
           <div className="col-md-6 col-12 mb-2 pe-lg-5">
             {grievanceStatus === "Resolved" && messageDisplay != null && (
-              <div>
+              <div className="pt-2">
                 <strong>Response :</strong> {messageDisplay}
               </div>
             )}
-            
+            {feedbackDisplay && userDetail.userType != "User" && (
+              <p className="pt-3">
+                <strong>Feedback :</strong> {feedbackDisplay}
+              </p>
+            )}
           </div>
           <div className="col-12 d-flex justify-content-end">
             <button
               className="btn btn-primary btn-sm me-2"
               onClick={viewDetails}
             >
-              {type=="feed" && !feedbackDisplay ?"Add Feedback" :"View"}
+              {type == "feed" && !feedbackDisplay ? "Add Feedback" : "View"}
             </button>
             {grievanceStatus === "pending" && (
               <button className="btn btn-danger btn-sm" onClick={deleteItem}>
@@ -233,7 +238,7 @@ export const GrievanceCard = (props) => {
               <strong>Description :</strong> {description}
             </p>
 
-            {feedbackDisplay && (
+            {feedbackDisplay && userDetail.userType == "User" && (
               <p>
                 <strong>Feedback :</strong> {feedbackDisplay}
               </p>

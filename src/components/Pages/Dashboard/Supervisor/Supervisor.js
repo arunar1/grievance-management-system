@@ -1,9 +1,46 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import ProfileComponent from "../Users/ProfileComponent";
 import { Link } from 'react-router-dom';
+import { ShowCard } from "../../../Card/ShowCard";
+import { supervisorGrievanceContext } from '../../../Hooks/context/SupervisorGrievance';
+import { allUserContext } from '../../../Hooks/context/Alluser';
+import axios from 'axios';
+
 export default function Supervisor() {
+
+  const {supervisorGrievance,setSupervisorGrievance} = useContext(supervisorGrievanceContext);
+  const {allusers,setAllusers} = useContext(allUserContext)
+
+
   const navigate = useNavigate();
+
+useEffect(() => {
+  const fetchAllGrievance = async () => {
+    try {
+      const response = await axios.get("http://localhost:8080/allGrievance");
+      console.log(response.data);
+      setSupervisorGrievance(response.data)
+    } catch (error) {
+      console.error("Error fetching grievances:", error);
+    }
+  };
+
+  const fetchAllUsers = async () => {
+    try {
+      const response = await axios.get("http://localhost:8080/allUsers");
+      console.log(response.data);
+      setAllusers(response.data)
+    } catch (error) {
+      console.error("Error fetching users:", error);
+    }
+  };
+
+  fetchAllGrievance();
+  fetchAllUsers();
+}, []);
+
+
 
   return (
     <div className="container-fluid" style={{ backgroundColor: "black" }}>
@@ -49,7 +86,7 @@ export default function Supervisor() {
                     navigate("/supervisor_home/view_all_grievance");
                   }}
                 >
-                  View All Grievances
+                  View Grievances
                 </div>
                 <div
                   className="btn btn-success m-3"
@@ -57,7 +94,7 @@ export default function Supervisor() {
                     navigate("/supervisor_home/assign_grievance");
                   }}
                 >
-                  Assign Grievances
+                  Assignies
                 </div>
                 {/* <div
                   className="btn btn-success m-3"
@@ -73,23 +110,23 @@ export default function Supervisor() {
                     navigate("/supervisor_home/monitor_progress");
                   }}
                 >
-                  Monitor Progress
+                  Pending Grievance
                 </div>
-                <div
+                {/* <div
                   className="btn btn-success m-3"
                   onClick={() => {
                     navigate("/supervisor_home/generate_report");
                   }}
                 >
                   Generate Reports
-                </div>
+                </div> */}
                 <div
                   className="btn btn-success m-3"
                   onClick={() => {
                     navigate("/supervisor_home/review_user_feedback");
                   }}
                 >
-                  Review User Feedback
+                  User Feedbacks
                 </div>
               </div>
             </div>
@@ -103,11 +140,8 @@ export default function Supervisor() {
               </div>
             </div>
             <div className="col-md-6 bg-white">
-              <div className="user-data min-vh-md-100 align-items-center d-flex pt-5 pt-md-0 justify-content-center">
-                <div
-                  class="text-secondary pt-5 mt-5 mt-md-0 pt-md-0"
-                  style={{ textAlign: "center" }}
-                ></div>
+              <div className="user-data min-vh-md-100 align-items-center m-5 d-flex pt-5 pt-md-0 justify-content-center">
+                <ShowCard />
               </div>
             </div>
           </div>
