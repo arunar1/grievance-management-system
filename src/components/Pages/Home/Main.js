@@ -34,16 +34,27 @@ export default function Main() {
      });
 
      if (response.data) {
+      console.log(response)
        setUserDetails(response.data);
 
        if (response.status === 200) {
-         if (response.data.userType === "User") {
-           navigate("/user_home");
-         } else if (response.data.userType === "Supervisor") {
-           navigate("/supervisor_home");
-         } else if (response.data.userType === "Asignee") {
-           navigate("/asignee_home");
-         }
+        if (response.data == "User doesn't exist"){
+          alert("User doesn't exist");
+        }
+        if (response.data == "Password is Incorrect"){
+          alert("Password is Incorrect");
+        }
+        if (userType != response.data.userType) {
+          alert("User type incorrect");
+          return
+        }
+          if (response.data.userType === "User") {
+            navigate("/user_home");
+          } else if (response.data.userType === "Supervisor") {
+            navigate("/supervisor_home");
+          } else if (response.data.userType === "Asignee") {
+            navigate("/asignee_home");
+          }
        }
      } else {
        console.log("User not found or invalid credentials");
