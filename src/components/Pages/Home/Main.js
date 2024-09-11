@@ -2,6 +2,7 @@ import React, { useEffect, useState,useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { userDetailsContext } from "../../Hooks/context/UserDetails";
+
 export default function Main() {
 
    const { userDetail, setUserDetails } = useContext(userDetailsContext);
@@ -38,16 +39,19 @@ export default function Main() {
        setUserDetails(response.data);
 
        if (response.status === 200) {
+        if (userType != response.data.userType) {
+          alert("User type incorrect");
+          return;
+        }
         if (response.data == "User doesn't exist"){
           alert("User doesn't exist");
+          return
         }
         if (response.data == "Password is Incorrect"){
           alert("Password is Incorrect");
-        }
-        if (userType != response.data.userType) {
-          alert("User type incorrect");
           return
         }
+        
           if (response.data.userType === "User") {
             navigate("/user_home");
           } else if (response.data.userType === "Supervisor") {

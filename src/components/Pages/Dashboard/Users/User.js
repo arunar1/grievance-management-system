@@ -129,6 +129,7 @@ export default function User() {
                   <Link to="/user_home/add_grievance" class="btn btn-primary">
                     Submit New Grievance
                   </Link>
+                  
                 </div>
               </div>
             </div>

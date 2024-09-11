@@ -26,6 +26,7 @@ export const GrievanceCard = (props) => {
     time,
     message,
     feedback,
+    category
   } = props.data;
 
   const type =props.type;
@@ -230,6 +231,9 @@ export const GrievanceCard = (props) => {
             </p>
             <p>
               <strong>Time :</strong> {time}
+            </p>
+            <p>
+              <strong>Category :</strong> {category}
             </p>
             <p>
               <strong>Urgency :</strong> {urgencyLevel}

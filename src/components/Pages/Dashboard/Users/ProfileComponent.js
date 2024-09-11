@@ -26,14 +26,28 @@ export default function ProfileComponent(props) {
               <h6 className="card-title pb-2 text-uppercase text-secondary">
                 {userDetail?.userType}
               </h6>
+              {userDetail?.userType == "Asignee" && (
+                <h6 className="card-title pb-2 text-uppercase text-secondary">
+                  {userDetail?.category}
+                </h6>
+              )}
             </>
           )}
           {user == "sup" && (
-            <div className=' border-black'>
-             <h5 className="card-title pb-2 text-uppercase">{props.data.firstName}{props.data.lastName}</h5>
-             <h6 className="card-title pb-2 text-uppercase text-secondary">{props.data.category}</h6>
-             <h6 className="card-title pb-2 text-uppercase text-secondary">{props.data.phone}</h6>
-             <h6 className="card-title pb-2 text-secondary">{props.data.email}</h6>
+            <div className=" border-black">
+              <h5 className="card-title pb-2 text-uppercase">
+                {props.data.firstName}
+                {props.data.lastName}
+              </h5>
+              <h6 className="card-title pb-2 text-uppercase text-secondary">
+                {props.data.category}
+              </h6>
+              <h6 className="card-title pb-2 text-uppercase text-secondary">
+                {props.data.phone}
+              </h6>
+              <h6 className="card-title pb-2 text-secondary">
+                {props.data.email}
+              </h6>
             </div>
           )}
 
