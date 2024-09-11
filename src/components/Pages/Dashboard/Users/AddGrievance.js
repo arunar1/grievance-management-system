@@ -2,7 +2,11 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { userDetailsContext } from "../../../Hooks/context/UserDetails";
+import { Alert } from "../../../Alert/Alert";
 export default function AddGrievance() {
+  const [alertMessage, setAlertMessage] = useState(false);
+  const [alertMessageContext, setAlertMessageContext] = useState("");
+  const [alertMessageTitle, setAlertMessageTitle] = useState("Info");
 
  const [categories, setCategories] = useState([]);
 
@@ -45,7 +49,8 @@ export default function AddGrievance() {
 
       console.log(response)
       if (response.data.success) {
-        alert("Grievance submitted successfully");
+        setAlertMessageContext("Grievance submitted successfully");
+        setAlertMessage(true);
         setSubject("");
         setDescription("");
         setCategory("");
@@ -67,6 +72,14 @@ export default function AddGrievance() {
 
   return (
     <div className="m-3 m-md-0">
+      {alertMessage && (
+        <Alert
+          title={alertMessageTitle}
+          message={alertMessageContext}
+          state={alertMessage}
+          stateChange={{ setAlertMessage }}
+        />
+      )}
       <div className="backbtn m-md-5">
         <i
           class="btn fa-solid fa-arrow-left fa-2x"
@@ -78,7 +91,6 @@ export default function AddGrievance() {
       <div className="container  mt-5">
         <h2 className="mb-4">Submit Grievance</h2>
         <form onSubmit={handleSubmit}>
-          
           <div className="form-group mt-3">
             <label>Subject</label>
             <input

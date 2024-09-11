@@ -2,8 +2,13 @@ import React, { useEffect, useState,useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { userDetailsContext } from "../../Hooks/context/UserDetails";
+import { Alert } from "../../Alert/Alert";
 
 export default function Main() {
+
+  const [alertMessage,setAlertMessage] = useState(false)
+  const [alertMessageContext,setAlertMessageContext]=useState("");
+  const [alertMessageTitle,setAlertMessageTitle]=useState("Info");
 
    const { userDetail, setUserDetails } = useContext(userDetailsContext);
 
@@ -39,17 +44,29 @@ export default function Main() {
        setUserDetails(response.data);
 
        if (response.status === 200) {
-        if (userType != response.data.userType) {
-          alert("User type incorrect");
+        console.log(response.data.userType);
+
+        if (response.data.userType && userType != response.data.userType) {
+          setAlertMessageContext("User type incorrect");
+          setAlertMessage(true);
           return;
         }
+        
         if (response.data == "User doesn't exist"){
-          alert("User doesn't exist");
+          setAlertMessageContext("User doesn't exist")
+          setAlertMessage(true)
+          
           return
         }
         if (response.data == "Password is Incorrect"){
-          alert("Password is Incorrect");
+          setAlertMessageContext("Password is Incorrect")
+          setAlertMessage(true)
           return
+        }
+        if (response.data.userType && userType != response.data.userType) {
+          setAlertMessageContext("User type incorrect");
+          setAlertMessage(true);
+          return;
         }
         
           if (response.data.userType === "User") {
@@ -69,9 +86,15 @@ export default function Main() {
  };
 
   return (
-    <div
-      className="container d-flex  login-container "
-    >
+    <div className="container d-flex  login-container ">
+      {alertMessage && (
+      <Alert
+        title={alertMessageTitle}
+        message={alertMessageContext}
+        state={alertMessage}
+        stateChange={{ setAlertMessage }}
+      />
+      )}
       <form onSubmit={handleSubmit} className="login-form text-white">
         <div className="row mb-3">
           <label className="col-sm-4 col-form-label">Role</label>

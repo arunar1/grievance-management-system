@@ -4,12 +4,14 @@ import { userGrievanceContext } from "../Hooks/context/UserGrievance";
 import axios from "axios";
 import { userDetailsContext } from "../Hooks/context/UserDetails";
 import { assigneeGrievanceContext } from "../Hooks/context/AsigneeGrievance";
-
-
+import { Alert } from "../Alert/Alert";
 
 
 export const GrievanceCard = (props) => {
-    const { assigneeGrievance, setAssigneeGrievance } = useContext(
+  const [alertMessage, setAlertMessage] = useState(false);
+  const [alertMessageContext, setAlertMessageContext] = useState("");
+  const [alertMessageTitle, setAlertMessageTitle] = useState("Info");
+  const { assigneeGrievance, setAssigneeGrievance } = useContext(
       assigneeGrievanceContext
     );
 
@@ -103,7 +105,8 @@ export const GrievanceCard = (props) => {
         setUserGrievance((prevGrievances) =>
           prevGrievances.filter((item) => item.slNumber !== slNumber)
         );
-        alert("Deleted Grievance successfully...");
+        setAlertMessageContext("Deleted Grievance successfully...");
+        setAlertMessage(true);
       }
     } catch (error) {
       console.error("Error deleting grievance:", error);
@@ -119,8 +122,11 @@ export const GrievanceCard = (props) => {
         setFeedbackDisplay(feedbackUser);
         setFeedbackUser("");
       }
-
-      console.log(response)
+      if (response.data.status == "success"){
+        setAlertMessageContext("Feedback added Successfully");
+        setAlertMessage(true);
+      }
+       console.log(response);
 
     } catch (error) {
       
@@ -131,6 +137,14 @@ export const GrievanceCard = (props) => {
 
   return (
     <div className="grievance-card container card shadow-sm mb-3">
+      {alertMessage && (
+        <Alert
+          title={alertMessageTitle}
+          message={alertMessageContext}
+          state={alertMessage}
+          stateChange={{ setAlertMessage }}
+        />
+      )}
       <div className="card-body">
         <div className="row">
           {userDetail.userType === "Asignee" && (

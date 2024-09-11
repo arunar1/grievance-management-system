@@ -1,7 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
-
+import { Alert } from "../../Alert/Alert";
 export default function Signup() {
+  const [alertMessage, setAlertMessage] = useState(false);
+  const [alertMessageContext, setAlertMessageContext] = useState("");
+  const [alertMessageTitle, setAlertMessageTitle] = useState("Info");
   const [formData, setFormData] = useState({
     passCode: "",
     category: "",
@@ -49,7 +52,8 @@ export default function Signup() {
 
       console.log(response.data);
       if(response.data.success){
-        alert("Registration is Successful");
+        setAlertMessageContext("Registration is Successful");
+        setAlertMessage(true);
          setFormData({
            passCode: "",
            category: "",
@@ -64,7 +68,8 @@ export default function Signup() {
          });
       }
       else{
-        alert(response.data.message)
+        setAlertMessageContext(response.data.message);
+        setAlertMessage(true);
       }
     } catch (error) {}
   };
@@ -74,6 +79,14 @@ export default function Signup() {
       className="d-flex justify-content-center mb-2"
       style={{ marginTop: "4rem" }}
     >
+      {alertMessage && (
+        <Alert
+          title={alertMessageTitle}
+          message={alertMessageContext}
+          state={alertMessage}
+          stateChange={{ setAlertMessage }}
+        />
+      )}
       <form
         className="row g-3 signup-container m-4 m-md-0 p-1 p-md-2 p-lg-5"
         onSubmit={handleSubmit}
