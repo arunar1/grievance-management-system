@@ -7,9 +7,10 @@ export default function ViewMyAssignments() {
 
   console.log(assigneeGrievance)
   const navigation = useNavigate();
-  const Card = assigneeGrievance.filter((item)=>item.status!="Resolved").map((item)=>{
-    return <GrievanceCard data={item} />;
-  })
+  const Card = assigneeGrievance
+    .filter((item) => item.status !== "Resolved")
+    .sort((a, b) => new Date(a.date) - new Date(b.date))
+    .map((item) => <GrievanceCard key={item.id} data={item} />);
 
 
   return (
