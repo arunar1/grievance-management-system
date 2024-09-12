@@ -38,7 +38,7 @@ export default function User() {
     <div className="container-fluid" style={{ backgroundColor: "black" }}>
       <div className="row">
         <div
-          className="col-md-1 bg-black text-md-center d-flex justify-content-between"
+          className="col-md-1 bg-black text-md-center d-flex d-md-block justify-content-between"
           style={{ padding: "20px" }}
         >
           <button
@@ -51,13 +51,13 @@ export default function User() {
             <i className="fa-solid fa-bars fa-2x"></i>
           </button>
           <div className=" d-md-none col-md-1 d-flex ">
-          <i
-            onClick={() => {
-              navigate("/");
-            }}
-            class="btn fa-solid fa-right-from-bracket fa-2x"
-            style={{ color: "white"}}
-          ></i>
+            <i
+              onClick={() => {
+                navigate("/");
+              }}
+              class="btn fa-solid fa-right-from-bracket fa-2x"
+              style={{ color: "white" }}
+            ></i>
           </div>
           <div
             class="offcanvas offcanvas-start"

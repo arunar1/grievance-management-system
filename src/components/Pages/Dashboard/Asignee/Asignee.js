@@ -36,7 +36,7 @@ export default function Asignee() {
     <div className="container-fluid" style={{ backgroundColor: "black" }}>
       <div className="row">
         <div
-          className="col-md-1 bg-black text-md-center"
+          className="col-md-1 bg-black text-md-center d-flex d-md-block justify-content-between"
           style={{ padding: "20px" }}
         >
           <button
