@@ -16,8 +16,8 @@ export default function User() {
     const fetchData = async()=>{
       try {
         const response = await axios.get(
-          "http://localhost:8080/getGrievanceByDetail",
-          { params: {email:userDetail.email} }
+          `${process.env.REACT_APP_URL}/getGrievanceByDetail`,
+          { params: { email: userDetail.email } }
         );
         
         setUserGrievance(response.data);

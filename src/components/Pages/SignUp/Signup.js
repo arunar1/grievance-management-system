@@ -39,7 +39,7 @@ export default function Signup() {
 
     console.log(formData);
     try {
-      const response = await axios.post("http://localhost:8080/addUser", {
+      const response = await axios.post(`${process.env.REACT_APP_URL}/addUser`, {
         firstName,
         lastName,
         email,
@@ -132,6 +132,7 @@ export default function Signup() {
               name="firstName"
               value={formData.firstName}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="col-md-6">
@@ -145,6 +146,7 @@ export default function Signup() {
               name="lastName"
               value={formData.lastName}
               onChange={handleChange}
+              required
             />
           </div>
         </div>
@@ -161,6 +163,7 @@ export default function Signup() {
                 name="passCode"
                 value={formData.passCode}
                 onChange={handleChange}
+                required={formData.userType !== "User"}
               />
             </div>
           ) : null}
@@ -176,6 +179,7 @@ export default function Signup() {
                 name="category"
                 value={formData.category}
                 onChange={handleChange}
+                required={formData.userType == "Asignee"}
               />
             </div>
           ) : null}
@@ -192,6 +196,7 @@ export default function Signup() {
               name="email"
               value={formData.email}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="col-md-6">
@@ -205,6 +210,7 @@ export default function Signup() {
               name="password"
               value={formData.password}
               onChange={handleChange}
+              required
             />
           </div>
         </div>
@@ -220,6 +226,7 @@ export default function Signup() {
               name="location"
               value={formData.location}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="col-md-6">
@@ -233,6 +240,7 @@ export default function Signup() {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
+              required
             />
           </div>
         </div>
@@ -246,6 +254,7 @@ export default function Signup() {
                 name="agree"
                 checked={formData.agree}
                 onChange={handleChange}
+                required
               />
               <label className="form-check-label" htmlFor="gridCheck">
                 Agree to Terms and Conditions

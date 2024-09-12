@@ -66,7 +66,7 @@ export const GrievanceCard = (props) => {
   const handleStatus = async (newStatus) => {
     try {
       const response = await axios.put(
-        `http://localhost:8080/updateStatus/${slNumber}`,{
+        `${process.env.REACT_APP_URL}/updateStatus/${slNumber}`,{
           status: newStatus}
       );
 
@@ -79,7 +79,7 @@ export const GrievanceCard = (props) => {
 
   const handleMessageSubmit = async () => {
     try {
-      const response = await axios.put(`http://localhost:8080/addMessage/${slNumber}`,{
+      const response = await axios.put(`${process.env.REACT_APP_URL}/addMessage/${slNumber}`,{
         message:messageInput
       });
       console.log(response)
@@ -90,32 +90,36 @@ export const GrievanceCard = (props) => {
       handleStatus("Resolved")
       setMessageInput("");
     } catch (error) {
-      console.error("Error submitting message:", error);
+      // console.error("Error submitting message:", error);
     }
   };
 
   const deleteItem = async () => {
     try {
       const response = await axios.delete(
-        `http://localhost:8080/deleteGrievance/${slNumber}`
+        `${process.env.REACT_APP_URL}/deleteGrievance/${slNumber}`
       );
+      console.log(response)
 
       if (response.status === 200) {
         setRefresh((prev) => !prev);
         setUserGrievance((prevGrievances) =>
           prevGrievances.filter((item) => item.slNumber !== slNumber)
         );
-        setAlertMessageContext("Deleted Grievance successfully...");
-        setAlertMessage(true);
+        if (response.data == "Grievance deleted successfully"){
+          setAlertMessageContext("Deleted Grievance successfully...");
+          setAlertMessage(true);
+        }
+          
       }
     } catch (error) {
-      console.error("Error deleting grievance:", error);
+      // console.error("Error deleting grievance:", error);
     }
   };
 
   const addFeedback =async()=>{
     try {
-      const response =await axios.put(`http://localhost:8080/addfeedback/${slNumber}`,{
+      const response =await axios.put(`${process.env.REACT_APP_URL}/addfeedback/${slNumber}`,{
         feedback:feedbackUser
       });
       if(response.status==200){
@@ -231,7 +235,7 @@ export const GrievanceCard = (props) => {
             >
               {type == "feed" && !feedbackDisplay ? "Add Feedback" : "View"}
             </button>
-            {grievanceStatus === "pending" && (
+            {grievanceStatus === "pending" || userDetail.userType=="Supervisor" && (
               <button className="btn btn-danger btn-sm" onClick={deleteItem}>
                 Delete
               </button>

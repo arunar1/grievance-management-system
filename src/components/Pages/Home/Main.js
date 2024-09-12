@@ -6,6 +6,8 @@ import { Alert } from "../../Alert/Alert";
 
 export default function Main() {
 
+  console.log(process.env.REACT_APP_URL);
+
   const [alertMessage,setAlertMessage] = useState(false)
   const [alertMessageContext,setAlertMessageContext]=useState("");
   const [alertMessageTitle,setAlertMessageTitle]=useState("Info");
@@ -35,7 +37,7 @@ export default function Main() {
    event.preventDefault();
 
    try {
-     const response = await axios.get("http://localhost:8080/getUser", {
+     const response = await axios.get(`${process.env.REACT_APP_URL}/getUser`, {
        params: { email: email, password: password },
      });
 
@@ -81,7 +83,7 @@ export default function Main() {
        console.log("User not found or invalid credentials");
      }
    } catch (error) {
-     console.error("Error during request:", error);
+    //  console.error("Error during request:", error);
    }
  };
 

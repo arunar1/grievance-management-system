@@ -18,8 +18,8 @@ export default function Asignee() {
      const fetchData = async () => {
        try {
          const response = await axios.get(
-           "http://localhost:8080/grievanceByCategory",
-           { params: { category: userDetail.category} }
+           `${process.env.REACT_APP_URL}/grievanceByCategory`,
+           { params: { category: userDetail.category } }
          );
 
         //  console.log(response.data)

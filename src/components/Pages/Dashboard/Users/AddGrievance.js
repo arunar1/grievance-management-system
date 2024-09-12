@@ -13,13 +13,13 @@ export default function AddGrievance() {
  const fetchCategories = async () => {
    try {
      const response = await axios.get(
-       "http://localhost:8080/distinctCategories"
+       `${process.env.REACT_APP_URL}/distinctCategories`
      );
      setCategories(response.data);
      console.log(response.data);
      
    } catch (error) {
-     console.error("Error fetching categories:", error);
+    //  console.error("Error fetching categories:", error);
    }
  };
  useEffect(() => {
@@ -43,8 +43,13 @@ export default function AddGrievance() {
   const handleSubmit = async(event) => {
     event.preventDefault();
     try {
-      const response =await axios.post("http://localhost:8080/addGrievance",{
-        subject,description,category,location,urgencyLevel,email
+      const response = await axios.post(`${process.env.REACT_APP_URL}/addGrievance`, {
+        subject,
+        description,
+        category,
+        location,
+        urgencyLevel,
+        email,
       });
 
       console.log(response)

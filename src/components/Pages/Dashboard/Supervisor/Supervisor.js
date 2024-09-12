@@ -18,7 +18,7 @@ export default function Supervisor() {
 useEffect(() => {
   const fetchAllGrievance = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/allGrievance");
+      const response = await axios.get(`${process.env.REACT_APP_URL}/allGrievance`);
       console.log(response.data);
       setSupervisorGrievance(response.data)
     } catch (error) {
@@ -28,11 +28,11 @@ useEffect(() => {
 
   const fetchAllUsers = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/allUsers");
+      const response = await axios.get("/allUsers");
       console.log(response.data);
       setAllusers(response.data)
     } catch (error) {
-      console.error("Error fetching users:", error);
+      // console.error("Error fetching users:", error);
     }
   };
 
