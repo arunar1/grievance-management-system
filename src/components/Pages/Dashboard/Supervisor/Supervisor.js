@@ -58,6 +58,15 @@ useEffect(() => {
           >
             <i className="fa-solid fa-bars fa-2x"></i>
           </button>
+          <div className=" d-md-none col-md-1 d-flex ">
+            <i
+              onClick={() => {
+                navigate("/");
+              }}
+              class="btn fa-solid fa-right-from-bracket fa-2x"
+              style={{ color: "white"}}
+            ></i>
+          </div>
 
           <div
             class="offcanvas offcanvas-start"

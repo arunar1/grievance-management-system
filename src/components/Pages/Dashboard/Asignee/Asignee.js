@@ -49,6 +49,16 @@ export default function Asignee() {
             <i className="fa-solid fa-bars fa-2x"></i>
           </button>
 
+          <div className=" d-md-none col-md-1 d-flex ">
+            <i
+              onClick={() => {
+                navigate("/");
+              }}
+              class="btn fa-solid fa-right-from-bracket fa-2x"
+              style={{ color: "white" }}
+            ></i>
+          </div>
+
           <div
             class="offcanvas offcanvas-start"
             data-bs-scroll="true"
@@ -115,7 +125,7 @@ export default function Asignee() {
             </div>
             <div className="col-md-6 bg-white">
               <div className="user-data min-vh-md-100 align-items-center m-5 d-flex pt-5 pt-md-0 justify-content-center">
-                  <ShowCard/>
+                <ShowCard />
               </div>
             </div>
           </div>
