@@ -6,7 +6,7 @@ export default function Contact() {
     <div className="min-vh-100 contact-page bg-light">
       <Header />
       <div className="container py-5 d-flex justify-content-center align-items-center">
-        <div className="w-50 p-4 bg-white rounded shadow-sm">
+        <div className="p-4 bg-white rounded shadow-sm w-100 p-0 pb-md-5 ">
           <h3 className="text-center mb-4">Contact Us</h3>
           <form>
             <div className="row mb-3">
