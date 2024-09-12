@@ -28,7 +28,7 @@ useEffect(() => {
 
   const fetchAllUsers = async () => {
     try {
-      const response = await axios.get("/allUsers");
+      const response = await axios.get(`${process.env.REACT_APP_URL}/allUsers`);
       console.log(response.data);
       setAllusers(response.data)
     } catch (error) {
