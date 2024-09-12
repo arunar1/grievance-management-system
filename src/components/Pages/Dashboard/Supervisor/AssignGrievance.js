@@ -7,7 +7,7 @@ export const AssignGrievance = () => {
   const navigation = useNavigate();
   const {allusers,setAllusers} = useContext(allUserContext)
 
-  const card = allusers.filter((item)=>item.userType=="Asignee").map((item)=>{
+  const card = [...allusers].filter((item)=>item.userType=="Asignee").map((item)=>{
     return <ProfileComponent data={item} user="sup"/>
   })
 
