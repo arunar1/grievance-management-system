@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { userDetailsContext } from "../../Hooks/context/UserDetails";
 import { Alert } from "../../Alert/Alert";
+import { Loading } from "../../Loading/Loading";
 
 export default function Main() {
 
@@ -11,6 +12,7 @@ export default function Main() {
   const [alertMessage,setAlertMessage] = useState(false)
   const [alertMessageContext,setAlertMessageContext]=useState("");
   const [alertMessageTitle,setAlertMessageTitle]=useState("Info");
+  const [loading,setLoading]=useState(false);
 
    const { userDetail, setUserDetails } = useContext(userDetailsContext);
 
@@ -40,10 +42,13 @@ export default function Main() {
      const response = await axios.get(`${process.env.REACT_APP_URL}/getUser`, {
        params: { email: email, password: password },
      });
+     setLoading(true)
+     
 
      if (response.data) {
       console.log(response)
        setUserDetails(response.data);
+       setLoading(false)
 
        if (response.status === 200) {
         console.log(response.data.userType);
@@ -81,6 +86,7 @@ export default function Main() {
        }
      } else {
        console.log("User not found or invalid credentials");
+       setLoading(false)
      }
    } catch (error) {
     //  console.error("Error during request:", error);
@@ -89,6 +95,10 @@ export default function Main() {
 
   return (
     <div className="container d-flex  login-container ">
+      <Loading/>
+      {loading && (
+        <Loading/>
+      )}
       {alertMessage && (
       <Alert
         title={alertMessageTitle}
