@@ -51,7 +51,7 @@ export default function Main() {
        setUserDetails(response.data);
        setLoading(false)
 
-       if (response.status === 200) {
+       if (response.status === 200 ) {
         console.log(response.data.userType);
 
         if (response.data.userType && userType != response.data.userType) {
@@ -76,6 +76,8 @@ export default function Main() {
           setAlertMessage(true);
           return;
         }
+
+          console.log(response.data)
         
           if (response.data.userType === "User") {
             navigate("/user_home");
@@ -165,6 +167,7 @@ export default function Main() {
               id="inputEmail3"
               value={email}
               onChange={handleEmailChange}
+              required
             />
           </div>
         </div>
@@ -179,6 +182,7 @@ export default function Main() {
               id="inputPassword3"
               value={password}
               onChange={handlePasswordChange}
+              required
             />
           </div>
         </div>
