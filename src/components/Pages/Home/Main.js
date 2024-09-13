@@ -37,12 +37,13 @@ export default function Main() {
 
  const handleSubmit = async (event) => {
    event.preventDefault();
+   setLoading(true);
+     
 
    try {
      const response = await axios.get(`${process.env.REACT_APP_URL}/getUser`, {
        params: { email: email, password: password },
      });
-     setLoading(true)
      
 
      if (response.data) {
