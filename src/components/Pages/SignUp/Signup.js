@@ -187,6 +187,7 @@ export default function Signup() {
                 className="form-control"
                 id="inputlicenseId4"
                 name="passCode"
+                placeholder="eg : gms"
                 value={formData.passCode}
                 onChange={handleChange}
                 required={formData.userType !== "User"}
@@ -203,7 +204,8 @@ export default function Signup() {
                 className="form-control"
                 id="inputCategory4"
                 name="category"
-                value={formData.category}
+                placeholder="eg : service, mechanic"
+                value={formData.category.toLowerCase().trim()}
                 onChange={handleChange}
                 required={formData.userType == "Asignee"}
               />
