@@ -38,6 +38,8 @@ export default function Signup() {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
+
+    setFormData(formData.category.category.toLowerCase().trim())
     
     const { firstName, lastName, email, password , category, phone , location, userType ,passCode} = formData; 
 
@@ -205,7 +207,7 @@ export default function Signup() {
                 id="inputCategory4"
                 name="category"
                 placeholder="eg : service, mechanic"
-                value={formData.category.toLowerCase().trim()}
+                value={formData}
                 onChange={handleChange}
                 required={formData.userType == "Asignee"}
               />
