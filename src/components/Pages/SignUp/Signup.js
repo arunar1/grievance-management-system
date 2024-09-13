@@ -38,8 +38,25 @@ export default function Signup() {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
+    
+    const { firstName, lastName, email, password , category, phone , location, userType ,passCode} = formData; 
+
+    if(passCode.trim() !== "gms"){
+      setAlertMessage(true)
+      setAlertMessageContext("Passcode is incorrect")
+      setAlertMessageTitle("Incorrect Input")
+      return
+    }
+
+    if(phone.length!=10){
+      setAlertMessage(true);
+      setAlertMessageContext("Invalid Phone number");
+      setAlertMessageTitle("Incorrect Input");
+      return;
+    }
+
+
     setLoading(true);
-    const { firstName, lastName, email, password , category, phone , location, userType} = formData; 
 
     console.log(formData);
     try {
