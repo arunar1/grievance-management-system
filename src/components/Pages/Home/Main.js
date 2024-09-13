@@ -95,7 +95,6 @@ export default function Main() {
 
   return (
     <div className="container d-flex  login-container ">
-      <Loading/>
       {loading && (
         <Loading/>
       )}
