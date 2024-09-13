@@ -1,10 +1,13 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Alert } from "../../Alert/Alert";
+import { Loading } from "../../Loading/Loading";
 export default function Signup() {
   const [alertMessage, setAlertMessage] = useState(false);
   const [alertMessageContext, setAlertMessageContext] = useState("");
   const [alertMessageTitle, setAlertMessageTitle] = useState("Info");
+    const [loading, setLoading] = useState(false);
+
   const [formData, setFormData] = useState({
     passCode: "",
     category: "",
@@ -35,6 +38,7 @@ export default function Signup() {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
+    setLoading(true);
     const { firstName, lastName, email, password , category, phone , location, userType} = formData; 
 
     console.log(formData);
@@ -51,6 +55,7 @@ export default function Signup() {
       });
 
       console.log(response.data);
+      setLoading(false)
       if(response.data.success){
         setAlertMessageContext("Registration is Successful");
         setAlertMessage(true);
@@ -68,10 +73,13 @@ export default function Signup() {
          });
       }
       else{
+        setLoading(false)
         setAlertMessageContext(response.data.message);
         setAlertMessage(true);
       }
-    } catch (error) {}
+    } catch (error) {
+      setLoading(false)
+    }
   };
 
   return (
@@ -79,6 +87,7 @@ export default function Signup() {
       className="d-flex justify-content-center mb-2"
       style={{ marginTop: "4rem" }}
     >
+      {loading && <Loading />}
       {alertMessage && (
         <Alert
           title={alertMessageTitle}

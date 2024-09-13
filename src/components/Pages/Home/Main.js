@@ -7,7 +7,7 @@ import { Loading } from "../../Loading/Loading";
 
 export default function Main() {
 
-  console.log(process.env.REACT_APP_URL);
+  // console.log(process.env.REACT_APP_URL);
 
   const [alertMessage,setAlertMessage] = useState(false)
   const [alertMessageContext,setAlertMessageContext]=useState("");

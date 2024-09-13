@@ -25,8 +25,16 @@ export default function TrackGrievance() {
           }}
         ></i>
       </div>
-      <h2 className="mb-4 container">Grievances</h2>
+      <h2 className="mb-4 container">Track Grievances</h2>
       {Card}
+      {userGrievance.length == 0 && (
+        <div
+          className="container text-center d-flex justify-content-center align-items-center"
+          style={{ height: "300px",}}
+        >
+          <h5>No Grievance Submitted</h5>
+        </div>
+      )}
     </div>
   );
 }

@@ -24,6 +24,14 @@ export const AssignGrievance = () => {
       </div>
       <h2 className="mb-4 container">Assignees</h2>
       <div className="container">{card}</div>
+      {[...allusers].filter((item)=>item.userType=="Asignee").length == 0 && (
+        <div
+          className="container text-center d-flex justify-content-center align-items-center"
+          style={{ height: "300px" }}
+        >
+          <h5>Assignees Are Not Registered</h5>
+        </div>
+      )}
     </div>
   );
 }

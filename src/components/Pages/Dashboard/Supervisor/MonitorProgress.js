@@ -27,6 +27,15 @@ export default function MonitorProgress() {
       </div>
       <h2 className="mb-4 container">Grievances</h2>
       {Card}
+      {supervisorGrievance.filter((item) => item.status != "Resolved").length ==
+        0 && (
+        <div
+          className="container text-center d-flex justify-content-center align-items-center"
+          style={{ height: "300px" }}
+        >
+          <h5>No Grievance are in Pending or Working on</h5>
+        </div>
+      )}
     </div>
   );
 }

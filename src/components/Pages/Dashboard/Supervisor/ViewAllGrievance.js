@@ -8,7 +8,7 @@ export default function ViewAllGrievance() {
   );
 
   const navigation = useNavigate();
-  const Card = supervisorGrievance
+  const Card = [...supervisorGrievance]
     .filter((item) => item.status == "Resolved")
     .map((item) => {
       return <GrievanceCard data={item} />;
@@ -27,6 +27,15 @@ export default function ViewAllGrievance() {
       </div>
       <h2 className="mb-4 container">Grievances</h2>
       {Card}
+      {[...supervisorGrievance].filter((item) => item.status == "Resolved")
+        .length == 0 && (
+        <div
+          className="container text-center d-flex justify-content-center align-items-center"
+          style={{ height: "300px" }}
+        >
+          <h5>No Grievance Submitted</h5>
+        </div>
+      )}
     </div>
   );
 }

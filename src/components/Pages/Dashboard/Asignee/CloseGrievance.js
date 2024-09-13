@@ -24,8 +24,17 @@ export default function CloseGrievance() {
           }}
         ></i>
       </div>
-      <h2 className="mb-4 container">Grievances</h2>
+      <h2 className="mb-4 container">Grievance Resolved</h2>
       {Card}
+      {assigneeGrievance.filter((item)=> item.status=="Resolved").length ==
+        0 && (
+        <div
+          className="container text-center d-flex justify-content-center align-items-center"
+          style={{ height: "300px" }}
+        >
+          <h5>No Grievance Submitted</h5>
+        </div>
+      )}
     </div>
   );
 }

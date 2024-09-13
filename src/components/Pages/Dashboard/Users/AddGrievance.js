@@ -3,10 +3,13 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { userDetailsContext } from "../../../Hooks/context/UserDetails";
 import { Alert } from "../../../Alert/Alert";
+import { Loading } from "../../../Loading/Loading";
 export default function AddGrievance() {
   const [alertMessage, setAlertMessage] = useState(false);
   const [alertMessageContext, setAlertMessageContext] = useState("");
   const [alertMessageTitle, setAlertMessageTitle] = useState("Info");
+  const [loading, setLoading] = useState(false);
+
 
  const [categories, setCategories] = useState([]);
 
@@ -42,6 +45,7 @@ export default function AddGrievance() {
 
   const handleSubmit = async(event) => {
     event.preventDefault();
+    setLoading(true)
     try {
       const response = await axios.post(`${process.env.REACT_APP_URL}/addGrievance`, {
         subject,
@@ -54,6 +58,7 @@ export default function AddGrievance() {
 
       console.log(response)
       if (response.data.success) {
+        setLoading(false)
         setAlertMessageContext("Grievance submitted successfully");
         setAlertMessage(true);
         setSubject("");
@@ -62,9 +67,8 @@ export default function AddGrievance() {
         setLocation("");
         setUrgency("");
       }
-      
     } catch (error) {
-      
+      setLoading(false)
     }
     console.log({
       subject,
@@ -77,6 +81,8 @@ export default function AddGrievance() {
 
   return (
     <div className="m-3 m-md-0">
+      {loading && <Loading />}
+      
       {alertMessage && (
         <Alert
           title={alertMessageTitle}
