@@ -92,10 +92,18 @@ useEffect(() => {
                 <div
                   className="btn btn-success m-3"
                   onClick={() => {
+                    navigate("/supervisor_home/monitor_progress");
+                  }}
+                >
+                  Pending Grievance
+                </div>
+                <div
+                  className="btn btn-success m-3"
+                  onClick={() => {
                     navigate("/supervisor_home/view_all_grievance");
                   }}
                 >
-                  View Grievances
+                  Closed Grievances
                 </div>
 
                 {/* <div
@@ -106,14 +114,7 @@ useEffect(() => {
                 >
                   Approve or Reject Grievances
                 </div> */}
-                <div
-                  className="btn btn-success m-3"
-                  onClick={() => {
-                    navigate("/supervisor_home/monitor_progress");
-                  }}
-                >
-                  Pending Grievance
-                </div>
+
                 {/* <div
                   className="btn btn-success m-3"
                   onClick={() => {

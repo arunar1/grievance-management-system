@@ -9,7 +9,7 @@ export default function AddFeedback() {
   console.log(userGrievance);
   const Card = userGrievance
     .filter((item) => item.status === "Resolved")
-    .map((item) => {
+    ?.map((item) => {
       return <GrievanceCard data={item} type="feed" />;
     });
 

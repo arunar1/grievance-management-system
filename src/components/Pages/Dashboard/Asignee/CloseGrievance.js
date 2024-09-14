@@ -9,7 +9,7 @@ export default function CloseGrievance() {
 
   console.log(assigneeGrievance);
   const navigation = useNavigate();
-  const Card = assigneeGrievance.filter((item)=> item.status=="Resolved").map((item) => {
+  const Card = assigneeGrievance.filter((item)=> item.status=="Resolved")?.map((item) => {
     return <GrievanceCard data={item} />;
   });
 
@@ -32,7 +32,7 @@ export default function CloseGrievance() {
           className="container text-center d-flex justify-content-center align-items-center"
           style={{ height: "300px" }}
         >
-          <h5>No Grievance Submitted</h5>
+          <h5>No Grievance </h5>
         </div>
       )}
     </div>

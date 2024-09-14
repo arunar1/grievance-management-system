@@ -10,7 +10,7 @@ export default function MonitorProgress() {
   const navigation = useNavigate();
   const Card = supervisorGrievance
     .filter((item) => item.status != "Resolved")
-    .map((item) => {
+    ?.map((item) => {
       return <GrievanceCard data={item} />;
     });
 

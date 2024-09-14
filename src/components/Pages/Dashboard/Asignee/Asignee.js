@@ -86,7 +86,7 @@ export default function Asignee() {
                     navigate("/asignee_home/view_my_assignment");
                   }}
                 >
-                  View My Assignments
+                  View Assignments
                 </div>
                 {/* <div
                   className="btn btn-success m-3"

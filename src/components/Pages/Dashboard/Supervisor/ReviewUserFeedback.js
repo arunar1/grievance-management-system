@@ -10,7 +10,7 @@ export default function ReviewUserFeedback() {
   const navigation = useNavigate();
   const Card = supervisorGrievance
     .filter((item) => item.feedback != null)
-    .map((item) => {
+    ?.map((item) => {
       return <GrievanceCard data={item} />;
     });
 
@@ -25,7 +25,7 @@ export default function ReviewUserFeedback() {
           }}
         ></i>
       </div>
-      <h2 className="mb-4 container">Grievances</h2>
+      <h2 className="mb-4 container">Feedback</h2>
       {Card}
       {supervisorGrievance.filter((item) => item.feedback != null).length ==
         0 && (

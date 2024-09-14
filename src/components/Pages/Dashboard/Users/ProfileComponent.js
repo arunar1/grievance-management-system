@@ -35,9 +35,11 @@ export default function ProfileComponent(props) {
           )}
           {user == "sup" && (
             <div className=" border-black">
-              <h5 className="card-title pb-2 text-uppercase">
-                {props.data.firstName}
-                {props.data.lastName}
+              {props.data && (
+                <>
+                <h5 className="card-title pb-2 text-uppercase">
+                {props.data.firstName.trim()} &nbsp;
+                {props.data.lastName.trim()}
               </h5>
               <h6 className="card-title pb-2 text-uppercase text-secondary">
                 {props.data.category}
@@ -48,6 +50,8 @@ export default function ProfileComponent(props) {
               <h6 className="card-title pb-2 text-secondary">
                 {props.data.email}
               </h6>
+                </>
+              )}
             </div>
           )}
 
