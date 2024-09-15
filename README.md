@@ -57,3 +57,12 @@ The Grievance Management System consists of three main roles: **User**, **Superv
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/arunar1/grievance-management-system.git
+
+2. **Select the Directory**
+   ```bash
+   cd grievance-management-system
+
+3. **Install Package**
+   ```bash
+   npm i
+
