@@ -78,6 +78,7 @@ export default function Signup() {
       console.log(response.data);
       setLoading(false)
       if(response.data.success){
+        setAlertMessageTitle("Success");
         setAlertMessageContext("Registration is Successful");
         setAlertMessage(true);
          setFormData({
