@@ -45,7 +45,7 @@ export default function Signup() {
 
     category = formData.category?.toLowerCase().trim();
 
-    if(passCode.trim() !== "gms"){
+    if(userType!="User" && passCode.trim() !== "gms"){
       setAlertMessage(true)
       setAlertMessageContext("Passcode is incorrect")
       setAlertMessageTitle("Incorrect Input")
