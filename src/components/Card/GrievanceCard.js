@@ -222,7 +222,12 @@ export const GrievanceCard = (props) => {
                 <strong>Response :</strong> {messageDisplay}
               </div>
             )}
-            {feedbackDisplay && userDetail.userType != "User" && (
+            {feedbackDisplay && userDetail.userType == "Asignee" && (
+              <p className="pt-3">
+                <strong>Feedback :</strong> {feedbackDisplay}
+              </p>
+            )}
+            {feedbackDisplay && userDetail.userType == "Supervisor" && props.display && (
               <p className="pt-3">
                 <strong>Feedback :</strong> {feedbackDisplay}
               </p>
@@ -235,11 +240,12 @@ export const GrievanceCard = (props) => {
             >
               {type == "feed" && !feedbackDisplay ? "Add Feedback" : "View"}
             </button>
-            {grievanceStatus === "pending" || userDetail.userType=="Supervisor" && (
-              <button className="btn btn-danger btn-sm" onClick={deleteItem}>
-                Delete
-              </button>
-            )}
+            {grievanceStatus === "pending" ||
+              (userDetail.userType == "Supervisor" && (
+                <button className="btn btn-danger btn-sm" onClick={deleteItem}>
+                  Delete
+                </button>
+              ))}
           </div>
         </div>
       </div>

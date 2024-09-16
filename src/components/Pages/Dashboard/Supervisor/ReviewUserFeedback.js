@@ -11,7 +11,7 @@ export default function ReviewUserFeedback() {
   const Card = supervisorGrievance
     .filter((item) => item.feedback != null)
     ?.map((item) => {
-      return <GrievanceCard data={item} />;
+      return <GrievanceCard data={item} display={true}  />;
     });
 
   return (
