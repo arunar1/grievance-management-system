@@ -196,6 +196,7 @@ export const GrievanceCard = (props) => {
                   setGrievanceStatus("Resolved");
                   handleStatus("Resolved");
                 }}
+                disabled
               >
                 Resolved
               </button>
