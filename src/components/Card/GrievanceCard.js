@@ -118,6 +118,11 @@ export const GrievanceCard = (props) => {
   };
 
   const addFeedback =async()=>{
+    if(feedbackUser.length==0){
+      setAlertMessageContext("Add some content");
+      setAlertMessage(true)
+      return;
+    }
     try {
       const response =await axios.put(`${process.env.REACT_APP_URL}/addfeedback/${slNumber}`,{
         feedback:feedbackUser

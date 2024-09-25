@@ -46,10 +46,15 @@ export default function Signup() {
     category = formData.category?.toLowerCase().trim();
 
     if(userType!="User" && passCode.trim() !== "gms"){
-      setAlertMessage(true)
       setAlertMessageContext("Passcode is incorrect")
       setAlertMessageTitle("Incorrect Input")
+      setAlertMessage(true);
       return
+    }
+    if(formData.password.length<8){
+      setAlertMessageContext("Provide a Strong Password");
+      setAlertMessage(true);
+      return;
     }
 
     if(phone.length!=10){
@@ -58,6 +63,8 @@ export default function Signup() {
       setAlertMessageTitle("Incorrect Input");
       return;
     }
+
+    
 
 
     setLoading(true);
@@ -273,6 +280,7 @@ export default function Signup() {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
+              pattern="\d*"
               required
             />
           </div>
