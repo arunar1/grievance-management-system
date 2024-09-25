@@ -78,6 +78,11 @@ export const GrievanceCard = (props) => {
 
 
   const handleMessageSubmit = async () => {
+    if(messageInput.trim.length<5){
+        setAlertMessageContext("Add Response");
+        setAlertMessage(true);
+        return;
+    }
     try {
       const response = await axios.put(`${process.env.REACT_APP_URL}/addMessage/${slNumber}`,{
         message:messageInput
@@ -118,7 +123,7 @@ export const GrievanceCard = (props) => {
   };
 
   const addFeedback =async()=>{
-    if(feedbackUser.length==0){
+    if(feedbackUser.trim.length==0){
       setAlertMessageContext("Add some content");
       setAlertMessage(true)
       return;
