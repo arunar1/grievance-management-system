@@ -251,7 +251,7 @@ export const GrievanceCard = (props) => {
             >
               {type == "feed" && !feedbackDisplay ? "Add Feedback" : "View"}
             </button>
-            {grievanceStatus === "pending" ||
+            {grievanceStatus == "pending" ||
               (userDetail.userType == "Supervisor" && (
                 <button className="btn btn-danger btn-sm" onClick={deleteItem}>
                   Delete
