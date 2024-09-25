@@ -12,7 +12,7 @@ export const Alert = (props) => {
     <>
       {props.state && ( 
         <div className="overlay">
-          <div className="custom-alert">
+          <div className="custom-alert m-2 m-md-0">
             <div className="custom-alert-content">
               <div className="custom-alert-header">
                 <h5 className="custom-alert-title">{props.title}</h5>
