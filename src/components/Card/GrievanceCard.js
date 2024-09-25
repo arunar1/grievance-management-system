@@ -78,7 +78,7 @@ export const GrievanceCard = (props) => {
 
 
   const handleMessageSubmit = async () => {
-    if(messageInput.trim.length<5){
+    if(messageInput.trim().length<5){
         setAlertMessageContext("Add Response");
         setAlertMessage(true);
         return;
@@ -123,7 +123,7 @@ export const GrievanceCard = (props) => {
   };
 
   const addFeedback =async()=>{
-    if(feedbackUser.trim.length==0){
+    if(feedbackUser.trim().length==0){
       setAlertMessageContext("Add some content");
       setAlertMessage(true)
       return;
