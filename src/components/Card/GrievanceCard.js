@@ -78,7 +78,7 @@ export const GrievanceCard = (props) => {
 
 
   const handleMessageSubmit = async () => {
-    if(messageInput.trim().length<5){
+    if(messageInput.trim().length==0){
         setAlertMessageContext("Add Response");
         setAlertMessage(true);
         return;
@@ -292,6 +292,7 @@ export const GrievanceCard = (props) => {
                     placeholder="Enter your message"
                     value={messageInput}
                     onChange={handleInputChange}
+                    required
                   />
                   <button
                     className="btn btn-success btn-sm"
@@ -309,6 +310,7 @@ export const GrievanceCard = (props) => {
                   placeholder="Submit feedback"
                   value={feedbackUser}
                   onChange={handleFeedbackInputChange}
+                  required
                 />
                 <button
                   className="btn btn-success btn-sm"
