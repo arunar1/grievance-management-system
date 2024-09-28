@@ -84,7 +84,7 @@ export default function Signup() {
 
       console.log(response.data);
       setLoading(false)
-      if(response.data.success){
+      if(response.data.statusCode==201){
         setAlertMessageTitle("Success");
         setAlertMessageContext("Registration is Successful");
         setAlertMessage(true);

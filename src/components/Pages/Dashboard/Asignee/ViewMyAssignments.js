@@ -5,11 +5,10 @@ import { useNavigate } from 'react-router-dom';
 export default function ViewMyAssignments() {
   const {assigneeGrievance, setAssigneeGrievance} = useContext(assigneeGrievanceContext);
 
-  console.log(assigneeGrievance)
   const navigation = useNavigate();
-  const Card = assigneeGrievance
-    .filter((item) => item.status !== "Resolved")
-    .sort((a, b) => new Date(a.date) - new Date(b.date))
+  const Card = [...assigneeGrievance]
+    ?.filter((item) => item.status !== "Resolved")
+    ?.sort((a, b) => new Date(a.date) - new Date(b.date))
     ?.map((item) => <GrievanceCard key={item.id} data={item} />);
 
 

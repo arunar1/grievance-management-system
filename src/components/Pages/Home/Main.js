@@ -35,66 +35,59 @@ export default function Main() {
     setPassword(event.target.value);
   };
 
- const handleSubmit = async (event) => {
-   event.preventDefault();
-   setLoading(true);
-     
+const handleSubmit = async (event) => {
+  event.preventDefault();
+  setLoading(true);
 
-   try {
-     const response = await axios.get(`${process.env.REACT_APP_URL}/getUser`, {
-       params: { email: email, password: password },
-     });
-     
+  try {
+    const response = await axios.get(`${process.env.REACT_APP_URL}/getUser`, {
+      params: { email, password }, 
+    });
+    console.log(response.data)
 
-     if (response.data) {
-      console.log(response)
-       setUserDetails(response.data);
-       setLoading(false)
+    if (response?.data) {
+      console.log(response.data.message);
+      setUserDetails(response.data.data); 
+      setLoading(false); 
 
-       if (response.status === 200 ) {
-        console.log(response.data.userType);
-
-        if (response.data.userType && userType != response.data.userType) {
-          setAlertMessageContext("User type incorrect");
-          setAlertMessage(true);
-          return;
-        }
-        
-        if (response.data == "User doesn't exist"){
-          setAlertMessageContext("User doesn't exist")
-          setAlertMessage(true)
-          
-          return
-        }
-        if (response.data == "Password is Incorrect"){
-          setAlertMessageContext("Password is Incorrect")
-          setAlertMessage(true)
-          return
-        }
-        if (response.data.userType && userType != response.data.userType) {
+      if (response.status === 200) { 
+        if (userType !== response.data.data.userType) {
           setAlertMessageContext("User type incorrect");
           setAlertMessage(true);
           return;
         }
 
-          console.log(response.data)
-        
-          if (response.data.userType === "User") {
+        if (response?.data?.message && response?.data?.message!="Login successful") {
+          setAlertMessageContext(response.data.message);
+          setAlertMessage(true);
+          return;
+        }
+
+        switch (userType) {
+          case "User":
             navigate("/user_home");
-          } else if (response.data.userType === "Supervisor") {
+            break;
+          case "Supervisor":
             navigate("/supervisor_home");
-          } else if (response.data.userType === "Asignee") {
+            break;
+          case "Asignee":
             navigate("/asignee_home");
-          }
-       }
-     } else {
-       console.log("User not found or invalid credentials");
-       setLoading(false)
-     }
-   } catch (error) {
-    //  console.error("Error during request:", error);
-   }
- };
+            break;
+          default:
+            setAlertMessageContext("Invalid user type");
+            setAlertMessage(true);
+            break;
+        }
+      }
+    } else {
+      console.log("User not found or invalid credentials");
+      setLoading(false);
+    }
+  } catch (error) {
+    setLoading(false); 
+  }
+};
+
 
   return (
     <div className="container d-flex  login-container ">

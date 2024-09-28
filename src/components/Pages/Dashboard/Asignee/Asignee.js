@@ -12,6 +12,8 @@ export default function Asignee() {
   const {userDetail} = useContext(userDetailsContext);
       const {assigneeGrievance, setAssigneeGrievance} = useContext(assigneeGrievanceContext);
 
+
+
   const navigate = useNavigate();
 
    useEffect(() => {
@@ -22,14 +24,18 @@ export default function Asignee() {
            { params: { category: userDetail.category } }
          );
 
-        //  console.log(response.data)
          if(response.status==200){
-          setAssigneeGrievance(response.data);
+          console.log(response)
+          setAssigneeGrievance(response.data.data ||[]);
          }
        } catch (error) {}
      };
      fetchData();
    }, []);
+
+
+   console.log(userDetail)
+  
 
 
   return (

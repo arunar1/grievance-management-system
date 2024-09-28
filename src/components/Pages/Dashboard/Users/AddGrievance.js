@@ -57,9 +57,9 @@ export default function AddGrievance() {
       });
 
       console.log(response)
-      if (response.data.success) {
+      if (response.data.statusCode==201) {
         setLoading(false)
-        setAlertMessageContext("Grievance submitted successfully");
+        setAlertMessageContext(response.data.message);
         setAlertMessage(true);
         setSubject("");
         setDescription("");

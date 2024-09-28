@@ -88,8 +88,8 @@ export const GrievanceCard = (props) => {
         message:messageInput
       });
       console.log(response)
-      if (response.data == "Message Added successfully"){
-        setGrievanceStatus("Resolved")
+      if (response.data.statusCode==200) {
+        setGrievanceStatus("Resolved");
       } 
       setMessageDisplay(messageInput);
       handleStatus("Resolved")
@@ -111,7 +111,7 @@ export const GrievanceCard = (props) => {
         setUserGrievance((prevGrievances) =>
           prevGrievances.filter((item) => item.slNumber !== slNumber)
         );
-        if (response.data == "Grievance deleted successfully"){
+        if (response.data.statusCode==200) {
           setAlertMessageContext("Deleted Grievance successfully...");
           setAlertMessage(true);
         }
@@ -136,7 +136,7 @@ export const GrievanceCard = (props) => {
         setFeedbackDisplay(feedbackUser);
         setFeedbackUser("");
       }
-      if (response.data.status == "success"){
+      if (response.data.statusCode == 200){
         setAlertMessageContext("Feedback added Successfully");
         setAlertMessage(true);
       }

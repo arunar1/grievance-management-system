@@ -20,7 +20,7 @@ useEffect(() => {
     try {
       const response = await axios.get(`${process.env.REACT_APP_URL}/allGrievance`);
       console.log(response.data);
-      setSupervisorGrievance(response.data)
+      setSupervisorGrievance(response.data.data || [])
     } catch (error) {
       console.error("Error fetching grievances:", error);
     }

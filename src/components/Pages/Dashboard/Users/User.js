@@ -20,7 +20,7 @@ export default function User() {
           { params: { email: userDetail.email } }
         );
         
-        setUserGrievance(response.data);
+        setUserGrievance(response.data.data);
       
       } catch (error) {
         
