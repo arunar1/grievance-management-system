@@ -50,14 +50,14 @@ const handleSubmit = async (event) => {
       setUserDetails(response.data.data); 
       setLoading(false); 
 
-      if (response.status === 200) { 
+      if (response.status == 200) { 
         if (userType !== response.data.data.userType) {
           setAlertMessageContext("User type incorrect");
           setAlertMessage(true);
           return;
         }
 
-        if (response?.data?.message && response?.data?.message!="Login successful") {
+        if (response.data?.message && response.data?.message!="Login successful") {
           setAlertMessageContext(response.data.message);
           setAlertMessage(true);
           return;
