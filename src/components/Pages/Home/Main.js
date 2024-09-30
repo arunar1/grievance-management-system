@@ -45,25 +45,18 @@ const handleSubmit = async (event) => {
     });
 
     if (response?.data) {
-      const { message, data } = response.data;
+      const { statusCode,message, data } = response.data;
 
       console.log("Message: ", message);
       console.log("Data: ", data);
 
       setUserDetails(data); 
 
-      if (response.status === 200) {
+      if (statusCode == 200) {
         if (userType !== data.userType) {
+          setLoading(false);
           setAlertMessageContext("User type incorrect");
           setAlertMessage(true); 
-          setLoading(false); 
-          return;
-        }
-
-        if (message && message !== "Login successful") {
-          setAlertMessageContext(message);
-          setAlertMessage(true); 
-          setLoading(false); 
           return;
         }
 
@@ -81,6 +74,13 @@ const handleSubmit = async (event) => {
             setAlertMessageContext("Invalid user type");
             setAlertMessage(true); 
         }
+      }
+      else
+      {
+        setLoading(false);
+        setAlertMessageContext(message);
+        setAlertMessage(true);
+        return;
       }
     } else {
       setAlertMessageContext("User not found or invalid credentials");
