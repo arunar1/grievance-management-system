@@ -37,29 +37,33 @@ export default function Main() {
 
 const handleSubmit = async (event) => {
   event.preventDefault();
-  setLoading(true);
+  setLoading(true); 
 
   try {
     const response = await axios.get(`${process.env.REACT_APP_URL}/getUser`, {
-      params: { email, password }, 
+      params: { email, password },
     });
-    console.log(response.data)
 
     if (response?.data) {
-      console.log(response.data.message);
-      setUserDetails(response.data.data); 
-      setLoading(false); 
+      const { message, data } = response.data;
 
-      if (response.status == 200) { 
-        if (userType !== response.data.data.userType) {
+      console.log("Message: ", message);
+      console.log("Data: ", data);
+
+      setUserDetails(data); 
+
+      if (response.status === 200) {
+        if (userType !== data.userType) {
           setAlertMessageContext("User type incorrect");
-          setAlertMessage(true);
+          setAlertMessage(true); 
+          setLoading(false); 
           return;
         }
 
-        if (response.data?.message && response.data?.message!="Login successful") {
-          setAlertMessageContext(response.data.message);
-          setAlertMessage(true);
+        if (message && message !== "Login successful") {
+          setAlertMessageContext(message);
+          setAlertMessage(true); 
+          setLoading(false); 
           return;
         }
 
@@ -75,15 +79,18 @@ const handleSubmit = async (event) => {
             break;
           default:
             setAlertMessageContext("Invalid user type");
-            setAlertMessage(true);
-            break;
+            setAlertMessage(true); 
         }
       }
     } else {
-      console.log("User not found or invalid credentials");
-      setLoading(false);
+      setAlertMessageContext("User not found or invalid credentials");
+      setAlertMessage(true)
     }
+
+    setLoading(false); 
   } catch (error) {
+    // setAlertMessageContext("An error occurred during login.");
+    // setAlertMessage(true); 
     setLoading(false); 
   }
 };
