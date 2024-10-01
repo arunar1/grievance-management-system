@@ -47,6 +47,12 @@ export const GrievanceCard = (props) => {
       setGrievanceStatus("Resolved");
     }
   }, [message]);
+
+
+  const showMessageBoxOnResolve = () => {
+    setIsModalOpen(true);
+  };
+
   const viewDetails = () => {
     setIsModalOpen((prev)=>!prev);
   };
@@ -189,6 +195,7 @@ export const GrievanceCard = (props) => {
                     onClick={() => {
                       setGrievanceStatus("working on");
                       handleStatus("working on");
+                      showMessageBoxOnResolve();
                     }}
                   >
                     Working on
@@ -223,8 +230,8 @@ export const GrievanceCard = (props) => {
           <div className="col-md-6 col-12 mb-2 pe-lg-5">
             <strong>Subject :</strong> {subject}
           </div>
-          <div className="col-md-6 col-12 mb-2">
-            <strong>Status:</strong> {grievanceStatus}
+          <div className="col-md-6 col-12 mb-2 d-flex ">
+            <strong className=" pe-2">Status:</strong> <div className="ps-2 pe-2" style={{backgroundColor:"rgba(234,233,86,1)",borderRadius:10}}>{grievanceStatus}</div>
           </div>
 
           <div className="col-md-6 col-12 mb-2 pe-lg-5">
@@ -238,11 +245,13 @@ export const GrievanceCard = (props) => {
                 <strong>Feedback :</strong> {feedbackDisplay}
               </p>
             )}
-            {feedbackDisplay && userDetail.userType == "Supervisor" && props.display && (
-              <p className="pt-3">
-                <strong>Feedback :</strong> {feedbackDisplay}
-              </p>
-            )}
+            {feedbackDisplay &&
+              userDetail.userType == "Supervisor" &&
+              props.display && (
+                <p className="pt-3">
+                  <strong>Feedback :</strong> {feedbackDisplay}
+                </p>
+              )}
           </div>
           <div className="col-12 d-flex justify-content-end">
             <button
@@ -251,11 +260,12 @@ export const GrievanceCard = (props) => {
             >
               {type == "feed" && !feedbackDisplay ? "Add Feedback" : "View"}
             </button>
-            {(grievanceStatus == "pending" && userDetail.userType=="User"  || userDetail.userType == "Supervisor")  && (
-                <button className="btn btn-danger btn-sm" onClick={deleteItem}>
-                  Delete
-                </button>
-              )}
+            {((grievanceStatus == "pending" && userDetail.userType == "User") ||
+              userDetail.userType == "Supervisor") && (
+              <button className="btn btn-danger btn-sm" onClick={deleteItem}>
+                Delete
+              </button>
+            )}
           </div>
         </div>
       </div>
