@@ -23,7 +23,7 @@ export default function CloseGrievance() {
 
       setCard(Card)
 
-  })
+  },[filterMail,assigneeGrievance])
   
   return (
     <div className="container-fluid">

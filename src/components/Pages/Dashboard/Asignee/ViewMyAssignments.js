@@ -13,7 +13,7 @@ export default function ViewMyAssignments() {
 
   useEffect(() => {
     const Card = [...assigneeGrievance]
-      ?.filter((item) => item.status !== "Resolved")
+      ?.filter((item) => item.status !== "Resolved" )
       ?.sort((a, b) => new Date(a.date) - new Date(b.date))
       ?.filter((item) => item.email.includes(filterMail.trim()))
       ?.map((item) => <GrievanceCard key={item.id} data={item} />);
@@ -42,13 +42,13 @@ export default function ViewMyAssignments() {
       <h2 className="mb-4 container">Assigned Grievances</h2>
       <Filter  value ={{setFilterMail,filterMail}} />
       {Card}
-      {assigneeGrievance.filter((item) => item.status !== "Resolved").length ==
+      {[...assigneeGrievance].filter((item) => item.status !== "Resolved").length ==
         0 && (
         <div
           className="container text-center d-flex justify-content-center align-items-center"
           style={{ height: "300px" }}
         >
-          <h5>No Grievance Submitted</h5>
+          <h5>No Grievance Available</h5>
         </div>
       )}
     </div>
