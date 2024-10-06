@@ -106,27 +106,37 @@ export const GrievanceCard = (props) => {
   };
 
   const deleteItem = async () => {
+    const isConfirmed = window.confirm(
+      "Are you sure you want to delete this item?"
+    );
+
+    if (!isConfirmed) {
+      return;
+    }
+
     try {
       const response = await axios.delete(
         `${process.env.REACT_APP_URL}/deleteGrievance/${slNumber}`
       );
-      console.log(response)
+
+      console.log(response);
 
       if (response.status === 200) {
         setRefresh((prev) => !prev);
         setUserGrievance((prevGrievances) =>
           prevGrievances.filter((item) => item.slNumber !== slNumber)
         );
-        if (response.data.statusCode==200) {
+
+        if (response.data.statusCode === 200) {
           setAlertMessageContext("Deleted Grievance successfully...");
           setAlertMessage(true);
         }
-          
       }
     } catch (error) {
       // console.error("Error deleting grievance:", error);
     }
   };
+
 
   const addFeedback =async()=>{
     if(feedbackUser.trim().length==0){
