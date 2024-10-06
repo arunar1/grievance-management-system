@@ -1,15 +1,30 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { assigneeGrievanceContext } from '../../../Hooks/context/AsigneeGrievance'
 import { GrievanceCard } from '../../../Card/GrievanceCard';
 import { useNavigate } from 'react-router-dom';
+import { Filter } from '../Filter/Filter';
 export default function ViewMyAssignments() {
   const {assigneeGrievance, setAssigneeGrievance} = useContext(assigneeGrievanceContext);
 
+  const [filterMail,setFilterMail] =useState('');
+  const [Card,setCard]=useState([])
+
   const navigation = useNavigate();
-  const Card = [...assigneeGrievance]
-    ?.filter((item) => item.status !== "Resolved")
-    ?.sort((a, b) => new Date(a.date) - new Date(b.date))
-    ?.map((item) => <GrievanceCard key={item.id} data={item} />);
+
+  useEffect(() => {
+    const Card = [...assigneeGrievance]
+      ?.filter((item) => item.status !== "Resolved")
+      ?.sort((a, b) => new Date(a.date) - new Date(b.date))
+      ?.filter((item) => item.email.includes(filterMail))
+      ?.map((item) => <GrievanceCard key={item.id} data={item} />);
+    setCard(Card);
+  }, [filterMail, assigneeGrievance]);
+
+
+
+  
+
+    console.log(filterMail)
 
 
   return (
@@ -23,7 +38,9 @@ export default function ViewMyAssignments() {
           }}
         ></i>
       </div>
+      
       <h2 className="mb-4 container">Assigned Grievances</h2>
+      <Filter  value ={{setFilterMail,filterMail}} />
       {Card}
       {assigneeGrievance.filter((item) => item.status !== "Resolved").length ==
         0 && (
