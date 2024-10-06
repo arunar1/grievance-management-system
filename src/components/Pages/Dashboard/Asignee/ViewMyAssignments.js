@@ -15,7 +15,7 @@ export default function ViewMyAssignments() {
     const Card = [...assigneeGrievance]
       ?.filter((item) => item.status !== "Resolved")
       ?.sort((a, b) => new Date(a.date) - new Date(b.date))
-      ?.filter((item) => item.email.includes(filterMail))
+      ?.filter((item) => item.email.includes(filterMail.trim()))
       ?.map((item) => <GrievanceCard key={item.id} data={item} />);
     setCard(Card);
   }, [filterMail, assigneeGrievance]);
